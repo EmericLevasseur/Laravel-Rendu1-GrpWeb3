@@ -111,7 +111,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Forum des articles de l'IIM
+                    Projet fin d'année
                 </div>
             </div>
         </div>
