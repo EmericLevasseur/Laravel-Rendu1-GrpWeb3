@@ -187,12 +187,12 @@ color: white;
 
 
             <div class="content">
-              <a href="http://google.com">
+              <a href="home">
                 <div class="title m-b-md">
                     The Parisian</br>
                   <div class="phrase">Discovering Paris in a new light</div>
                   </div>
-                <div class="arrow">Discover<img src="http://marcelklacan.com/images/icon.png" alt="" /></div>
+                <div class="arrow">Découvrir<img src="http://marcelklacan.com/images/icon.png" alt="" /></div>
 
             </div>
         </div>

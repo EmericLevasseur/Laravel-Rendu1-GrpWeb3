@@ -1,118 +1,78 @@
 <style>
-body{
-  background: #2980b9 url('http://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0;
-	-webkit-animation: 10s linear 0s normal none infinite animate;
-	-moz-animation: 10s linear 0s normal none infinite animate;
-	-ms-animation: 10s linear 0s normal none infinite animate;
-	-o-animation: 10s linear 0s normal none infinite animate;
-	animation: 10s linear 0s normal none infinite animate;
-
+body {
+  background-color: black;
+}
+div, div::before, div::after,
+img,
+span {
+  -webkit-transition: all 1s;
+  transition: all 1s;
 }
 
-@-webkit-keyframes animate {
-	from {background-position:0 0;}
-	to {background-position: 500px 0;}
+img {
+  height: auto;
+  width: 100%;
 }
 
-@-moz-keyframes animate {
-	from {background-position:0 0;}
-	to {background-position: 500px 0;}
+div {
+  float: left;
+  position: relative;
+  overflow: hidden;
+}
+div:hover img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+div:hover span {
+  opacity: 1;
+}
+div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
 }
 
-@-ms-keyframes animate {
-	from {background-position:0 0;}
-	to {background-position: 500px 0;}
+div:hover::after {
+  opacity: 1;
 }
 
-@-o-keyframes animate {
-	from {background-position:0 0;}
-	to {background-position: 500px 0;}
+span {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  opacity: 0;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.65);
+  font: bold 20px sans-serif;
 }
 
-@keyframes animate {
-	from {background-position:0 0;}
-	to {background-position: 500px 0;}
+@media screen and (min-width: 760px) {
+  div {
+    width: 25%;
+  }
 }
 
-    .title {
-        font-size: 50px;
-        text-align: center;
-        color: white;
-    }
-    .space {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .table-white {
-      background-color: white;
-      border: 2px solid black !important;
-    }
-    .btn-taille {
-      width: 100px;
-
-    }
 </style>
-
-
-
-@extends('layouts.app')
-@section('content')
-
-<div class="flash-message">
-    @foreach (['danger', 'warning', 'success', 'info'] as $msg)
-      @if(Session::has('alert-' . $msg))
-
-      <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
-      @endif
-    @endforeach
-</div> <!-- end .flash-message -->
-<div class="container">
-  <div class="title m-b-md">
-      Liste des articles
-  </div>
-  <div class="space">
-  <a class="btn btn-success" href="{{ route('article.create') }}">
-      Créer un nouvel article
-  </a>
-</div>
-
-  <table class="table table-bordered table-striped table-white">
-      <thead>
-      <tr>
-          <td><center>Titre</center></td>
-          <td><center>Description</center></td>
-          <td><center>Auteur</center></td>
-          <td><center>Actions</center></td>
-      </tr>
-      </thead>
-      @foreach($articles AS $article)
-          <tr>
-              <td>
-                  <a href="{{ url('/article') }}/{{$article->id}}">{{ $article->title }}</a>
-              </td>
-              <td>
-                  {{ $article->content }}
-              </td>
-              <td>
-                  {{ $article->user->name }}
-              </td>
-              <td><center>
-                  <a href="{{ route('article.show', $article->id) }}" class="btn btn-primary btn-taille">Afficher</a>
-                  @if (Auth::user()->isAdmin == 1 || $article->user_id == Auth::user()->id)
-                  <a href="{{ url('/article') }}/{{$article->id}}/edit" class="btn btn-success btn-taille">Modifier</a>
-                  <form action="{{ route('article.destroy', $article->id) }}" method="post" style="display: inline-block;">
-                      {{ csrf_field() }}
-                      <input type="hidden" name="_method" value="DELETE">
-                      <button class="btn btn-danger btn-taille">Supprimer</button>
-                  </form></center>
-                  @else
-                  @endif
-              </td>
-              <a href="{{ url('/article') }}/{{$article->id}}/edit">
-              </a>
-          </tr>
-      @endforeach
-  </table>
-  {{$articles->links()}}
-</div>
-@endsection
+<body>
+<a href="home"><div><img src="http://unsplash.it/620?image=0"><span>Paris</span></div></a>
+<div><img src="http://unsplash.it/620?image=10"><span>Send</span></div>
+<div><img src="http://unsplash.it/620?image=20"><span>Send</span></div>
+<div><img src="http://unsplash.it/620?image=30"><span>Send</span></div>
+<div><img src="http://unsplash.it/620?image=40"><span>Send</span></div>
+<div><img src="http://unsplash.it/620?image=50"><span>Send</span></div>
+<div><img src="http://unsplash.it/620?image=60"><span>Send</span></div>
+<div><img src="http://unsplash.it/620?image=70"><span>Send</span></div>
+<div><img src="http://unsplash.it/620?image=80"><span>Send</span></div>
+<div><img src="http://unsplash.it/620?image=90"><span>Send</span></div>
+<div><img src="http://unsplash.it/620?image=100"><span>Send</span></div>
+<div><img src="http://unsplash.it/620?image=100"><span>Send</span></div>
+</body>

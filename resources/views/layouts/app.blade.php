@@ -36,7 +36,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'IIM - Corentin & Emeric') }}
+                        The Parisian
                     </a>
                 </div>
 
@@ -97,6 +97,7 @@
                 </div>
             </div>
         </nav>
+
 
         @yield('content')
     </div>
