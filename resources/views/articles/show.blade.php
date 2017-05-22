@@ -1,148 +1,113 @@
 <style>
-body{
-  color: white !important;
-  background: #2980b9 url('http://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0;
-	-webkit-animation: 10s linear 0s normal none infinite animate;
-	-moz-animation: 10s linear 0s normal none infinite animate;
-	-ms-animation: 10s linear 0s normal none infinite animate;
-	-o-animation: 10s linear 0s normal none infinite animate;
-	animation: 10s linear 0s normal none infinite animate;
+@import url('https://fonts.googleapis.com/css?family=Poiret+One');
 
+body {
+  margin: 0;
+  background: black !important;
+  font-family: 'Poiret One', cursive !important;
+}
+img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -100;
+    background-size: 100%;
+    transition: 1s opacity;
 }
 
-@-webkit-keyframes animate {
-	from {background-position:0 0;}
-	to {background-position: 500px 0;}
+#polina {
+  font-weight:100;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  padding: 2rem;
+  width: 33%;
+  margin:2rem;
+  float: left;
+  font-size: 1.2rem;
+}
+h1 {
+  font-size: 18px !important;
+  margin-top: 0;
+  font-weight: bold !important;
+  text-align: center;
 }
 
-@-moz-keyframes animate {
-	from {background-position:0 0;}
-	to {background-position: 500px 0;}
+
+.adresse {
+  font-weight: bold !important;
+  font-size: 18px !important;
 }
 
-@-ms-keyframes animate {
-	from {background-position:0 0;}
-	to {background-position: 500px 0;}
+p {
+  font-size: 15px !important;
+  padding-top: 10px;
 }
 
-@-o-keyframes animate {
-	from {background-position:0 0;}
-	to {background-position: 500px 0;}
+a {
+    color: white !important;
+    text-decoration: none !important;
 }
 
-@keyframes animate {
-	from {background-position:0 0;}
-	to {background-position: 500px 0;}
+.navbar-default {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  border-color: transparent !important;
+  margin-bottom: 0px !important;
 }
 
-    .title {
-        font-size: 40px;
-        color: white;
-    }
-    .space {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .table-white {
-      background-color: white;
-      border: 2px solid black !important;
-    }
-    .btn-taille {
-      width: 100px;
-    }
-    .contenu {
-      color: black !important;
-      background-color: white;
-      border-radius: 30px;
-      padding-left: 40px;
-      padding-right: 40px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      width: 100%;
-    }
-    .interaction {
-      color: white !important;
-    }
+#polina button {
+  display: block;
+  width: 50%;
+  padding: .4rem;
+  border: none;
+  margin: 1rem auto;
+  font-size: 1.3rem;
+  background: rgba(255,255,255,0.23);
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: .3s background;
+}
+#polina button:hover {
+   background: rgba(0,0,0,0.5);
+}
+
+.arrow {
+  position: absolute;
+  font-size: 60px;
+  border-radius: 3px;
+  color: #FFD700;
+  background-color: rgba(0, 0, 0, 0.7);
+  bottom: 10%;
+  right: 5%;
+  margin: 0 auto;
+  display: block;
+  padding-left: 15px;
+  padding-right: 15px;
+  transition: all 1s;
+}
+
+.arrow:hover {
+    background-color: rgba(0, 0, 0, 1);
+    transform: scale(1.1);
+}
 
 </style>
 
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-  <div class="title m-b-md">
-      <center>Article de <a href="{{ url('/user/'.$article->user->id) }}">{{ $article->user->name }}</a></center>
-  </div>
-  <div class="space">
-  </div>
-<article class="" data-postid="{{$article->id}}">
-  <div class="contenu"><center>
-  <h4>{{ $article->title }}</h4>
-  <p>{{ $article->content }}</p>
-</center></div>
-<div class="space">
-</div>
-  <div class="interaction">
-    <center><a href="#" class="like btn btn-success">{{Auth::user()->likes()->where('article_id', $article->id)->first() ? Auth::user()->likes()->where('article_id', $article->id)->first()->like == 1 ?'You like this article':'like':'like' }}</a>
-    <a href="#"  class="like btn btn-danger">{{Auth::user()->likes()->where('article_id', $article->id)->first() ? Auth::user()->likes()->where('article_id', $article->id)->first()->like == 0 ? 'You dont like this article':'dislike':'dislike' }}</a>
-    <a href="#"  class="share btn btn-info">Share</a>
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.8";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-      <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Partager</a></div>
-      <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    <script src="https://apis.google.com/js/platform.js" async defer>
-      {lang: 'fr'}
-    </script>
-    <div class="g-plus" data-action="share"></div>
-  </div>
-</article>
-<div class="space">
+
+<img src="https://r.lvmh-static.com/uploads/2015/02/fondation-louis-vuitton-casacade-1584x876.jpg" id="bgvid">
+  <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+<div class="arrow">Fondation Louis Vitton</div>
+<div id="polina">
+<h1>Auteur de l'article : Emeric</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta dictum turpis, eu mollis justo gravida ac. Proin non eros blandit, rutrum est a, cursus quam. Nam ultricies, velit ac suscipit vehicula, turpis eros sollicitudin lacus, at convallis mauris magna non justo. Etiam et suscipit elit. Morbi eu ornare nulla, sit amet ornare est. Sed vehicula ipsum a mattis dapibus. Etiam volutpat vel enim at auctor.</p>
+<p class="adresse">Adresse : 34 Rue Rivoli - Paris</p>
+<button>Réagir</button>
+<center><a href="#" class="like btn btn-success">{{Auth::user()->likes()->where('article_id', $article->id)->first() ? Auth::user()->likes()->where('article_id', $article->id)->first()->like == 1 ?'You like this article':'like':'like' }}</a>
+<a href="#"  class="like btn btn-danger">{{Auth::user()->likes()->where('article_id', $article->id)->first() ? Auth::user()->likes()->where('article_id', $article->id)->first()->like == 0 ? 'You dont like this article':'dislike':'dislike' }}</a>
+</center>
 </div>
 
-@if (empty($comments))
-<h2>Liste des commentaires</h2>
-@foreach($article->comments AS $comment)
-    <div style="border-left:3px solid orange; padding-left:10px;">
-        <p>
-            {{ $comment->comment }}
-        </p>
-        @if($comment->user)
-          <div class="info">
-            Posted by {{ $comment->user->name  }} on {{$article->created_at}}
-            @if (Auth::user()->isAdmin == 1)
-            <form action="{{ route('comment.destroyComment', $comment->id) }}" method="post" style="display: inline-block;">
-                {{ csrf_field() }}
-                <input type="hidden" name="_method" value="DELETE">
-                <button class="btn btn-danger">Supprimer</button>
-            </form>
-            @else
-            @endif
-          </div>
-        @endif
-    </div>
-    <hr>
-
-@endforeach
-@else
-  <h2>Aucun commentaire</h2>
-@endif
-
-<form action="{{ route('article.comment', $article->id) }}" method="post">
-    {{ csrf_field() }}
-    <textarea name="comment" class="form-control" placeholder="Votre commentaire"></textarea>
-    <div class="space">
-  </div>
-    <center><button class="btn btn-primary">Envoyer</button></center>
-</form>
-</div>
-<script>
-  var token ='{{ Session::token() }}'
-  var urlLike ="{{ route('article.like') }}"
-</script>
 @endsection

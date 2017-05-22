@@ -216,10 +216,10 @@ a {
           <img src="https://source.unsplash.com/featured/?market" />
       </a>
       <a href="article/11">
-          <img src="https://source.unsplash.com/featured/?street" />
+          <img src="http://lafilledecorinthe.com/wordpress/wp-content/uploads/2015/05/Varini.jpg" />
       </a>
       <a href="article/11">
-          <img src="https://source.unsplash.com/featured/?bird" />
+          <img src="https://www.sneak-art.com/wp-content/uploads/2016/06/Mur-Street-Art-Obey-Paris-13-Lionel-Belluteau.jpg" />
       </a>
   </div>
 

@@ -132,8 +132,8 @@ h1, h2, h3, h4 {
   left: -140%;
   height: 140%;
   width: 140%;
-  -webkit-animation: img-anim-in 1.2s ease-in-out forwards;
-          animation: img-anim-in 1.2s ease-in-out forwards;
+  -webkit-animation: img-anim-in 2s ease-in-out forwards;
+          animation: img-anim-in 2s ease-in-out forwards;
 }
 .slide.anim-out {
   -webkit-box-flex: 0;
