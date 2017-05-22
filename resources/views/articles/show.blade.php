@@ -24,6 +24,9 @@ img {
   margin:2rem;
   float: left;
   font-size: 1.2rem;
+  animation-duration: 1s;
+  animation-delay: 0.4s;
+  transition: all 1s;
 }
 h1 {
   font-size: 18px !important;
@@ -84,11 +87,16 @@ a {
   padding-left: 15px;
   padding-right: 15px;
   transition: all 1s;
+  animation-duration: 1s;
+  animation-delay: 0.3s;
 }
 
 .arrow:hover {
-    background-color: rgba(0, 0, 0, 1);
-    transform: scale(1.1);
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+#polina:hover {
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
 </style>
@@ -99,8 +107,8 @@ a {
 
 <img src="https://r.lvmh-static.com/uploads/2015/02/fondation-louis-vuitton-casacade-1584x876.jpg" id="bgvid">
   <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
-<div class="arrow">Fondation Louis Vitton</div>
-<div id="polina">
+<div class="arrow animated fadeInRight">Fondation Louis Vitton</div>
+<div id="polina" class="animated fadeInleft">
 <h1>Auteur de l'article : Emeric</h1>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta dictum turpis, eu mollis justo gravida ac. Proin non eros blandit, rutrum est a, cursus quam. Nam ultricies, velit ac suscipit vehicula, turpis eros sollicitudin lacus, at convallis mauris magna non justo. Etiam et suscipit elit. Morbi eu ornare nulla, sit amet ornare est. Sed vehicula ipsum a mattis dapibus. Etiam volutpat vel enim at auctor.</p>
 <p class="adresse">Adresse : 34 Rue Rivoli - Paris</p>

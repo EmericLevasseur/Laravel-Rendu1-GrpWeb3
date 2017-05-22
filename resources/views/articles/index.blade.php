@@ -51,6 +51,7 @@ a {
 .headline h1{
   font-size: 4.5rem;
   left: 3%;
+	animation-duration: 1s;
 }
 
 
@@ -147,7 +148,7 @@ a {
 <div class="wrapper">
 <header>
   <div class="headline">
-    <h1>Street Art</h1>
+    <h1 class="animated fadeInLeft">Street Art</h1>
   <div class="arrow"><a href="article"><img src="http://marcelklacan.com/images/icon.png" alt="" /></a></div>
 
   </div>
