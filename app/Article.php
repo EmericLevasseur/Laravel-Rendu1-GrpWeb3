@@ -19,7 +19,7 @@ class Article extends Model
   * @var array
   */
   protected $fillable = [
-  'user_id', 'title', 'content',
+  'user_id', 'title', 'content','categorie_id','adresse'
   ];
 
   /**
@@ -43,6 +43,11 @@ class Article extends Model
   public function likes()
   {
       return $this->hasMany('\App\Like');
+  }
+
+  public function categorie()
+  {
+      return $this->belongsTo('\App\Categorie');
   }
 
 

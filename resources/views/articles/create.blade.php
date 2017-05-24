@@ -66,14 +66,25 @@ body{
   <div class="space">
 </div>
 
-<form method="POST" action="{{route('article.store')}}">
+<form method="POST" action="{{route('article.store')}}" enctype="multipart/form-data">
   {{csrf_field()}}
 <div class="form-group">
 <input class="form-control" type="text" name="title" placeholder="Titre">
 <br>
 <textarea class="form-control" name="content" id="" placeholder="Contenu" cols="30" rows="10"></textarea>
 <br>
+<input class="form-control" type="text" name="adresse" placeholder="Adresse">
+
+<br>
+<input type="file" name="image" class="form-control">
+<br>
+<SELECT name="categorie" size="1">
+  @foreach($categories AS $categorie)
+  <option value="{{$categorie->id_cat}}">{{$categorie->libelle}}</option>
+  @endforeach
+</select>
 <center><input class="btn btn-success" type="submit" value="Envoyer"></center>
+<input type="hidden" name="_token" value="{{ Session::token()}}">
 </form>
 </div>
 </div>

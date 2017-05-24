@@ -104,18 +104,23 @@ a {
 @extends('layouts.app')
 
 @section('content')
-
-<img src="https://r.lvmh-static.com/uploads/2015/02/fondation-louis-vuitton-casacade-1584x876.jpg" id="bgvid">
+@if (Storage::disk('local')->has($article->title . '-' . $user->id . '.jpg'))
+  <img id="bgvid" src="{{ route('account.image', ['filename' => $article->title . '-' . $user->id . '.jpg']) }}">
+@endif
   <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
-<div class="arrow animated fadeInRight">Fondation Louis Vitton</div>
+<div class="arrow animated fadeInRight">{{$article->title}}</div>
 <div id="polina" class="animated fadeInleft">
-<h1>Auteur de l'article : Emeric</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta dictum turpis, eu mollis justo gravida ac. Proin non eros blandit, rutrum est a, cursus quam. Nam ultricies, velit ac suscipit vehicula, turpis eros sollicitudin lacus, at convallis mauris magna non justo. Etiam et suscipit elit. Morbi eu ornare nulla, sit amet ornare est. Sed vehicula ipsum a mattis dapibus. Etiam volutpat vel enim at auctor.</p>
-<p class="adresse">Adresse : 34 Rue Rivoli - Paris</p>
+<h1>Auteur de l'article : {{$user->name}}</h1>
+<p>{{$article->content}}</p>
+<p class="adresse">Adresse : {{$article->adresse}}</p>
 <button>Réagir</button>
-<center><a href="#" class="like btn btn-success">{{Auth::user()->likes()->where('article_id', $article->id)->first() ? Auth::user()->likes()->where('article_id', $article->id)->first()->like == 1 ?'You like this article':'like':'like' }}</a>
-<a href="#"  class="like btn btn-danger">{{Auth::user()->likes()->where('article_id', $article->id)->first() ? Auth::user()->likes()->where('article_id', $article->id)->first()->like == 0 ? 'You dont like this article':'dislike':'dislike' }}</a>
+<center><a href="#" class="like btn btn-success">{{Auth::user()->likes()->where('article_id', $article->id)->first() ? Auth::user()->likes()->where('article_id', $article->id)->first()->like == 1 ?'Vous aimez cet article':'J\'aime':'J\'aime' }}</a>
+<a href="#"  class="like btn btn-danger">{{Auth::user()->likes()->where('article_id', $article->id)->first() ? Auth::user()->likes()->where('article_id', $article->id)->first()->like == 0 ? 'Vous n\'aimez pas cet article':'Je n\'aime pas':'Je n\'aime pas' }}</a>
 </center>
 </div>
+<script>
+  var token ='{{ Session::token() }}'
+  var urlLike ="{{ route('article.like') }}"
+</script>
 
 @endsection

@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'ArticlesTableSeeder' => $baseDir . '/database/seeds/ArticlesTableSeeder.php',
     'CreateArticlesTable' => $baseDir . '/database/migrations/2017_02_07_080606_create_articles_table.php',
+    'CreateCategorieTable' => $baseDir . '/database/migrations/2017_05_24_130922_create_categorie_table.php',
     'CreateCommentsTable' => $baseDir . '/database/migrations/2017_02_13_142206_create_comments_table.php',
     'CreateFormulaireTable' => $baseDir . '/database/migrations/2017_02_15_142223_create_formulaire_table.php',
     'CreateLikesTable' => $baseDir . '/database/migrations/2017_02_16_125119_create_likes_table.php',
@@ -544,6 +545,7 @@ return array(
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
     'UpadteLikeTable' => $baseDir . '/database/migrations/2017_02_16_144302_upadte_like_table.php',
+    'Update3ArticlesTable' => $baseDir . '/database/migrations/2017_05_24_132114_update3_articles_table.php',
     'UpdateArticlesTable' => $baseDir . '/database/migrations/2017_02_07_081652_update_articles_table.php',
     'UpdateUser1Table' => $baseDir . '/database/migrations/2017_02_10_090759_update_user1_table.php',
     'UpdateUsersTable' => $baseDir . '/database/migrations/2017_02_08_110208_update_users_table.php',

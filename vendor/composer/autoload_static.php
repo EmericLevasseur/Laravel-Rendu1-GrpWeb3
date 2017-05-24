@@ -274,6 +274,7 @@ class ComposerStaticInit42e4d550c5c5e94a69a1f609115e0a6e
     public static $classMap = array (
         'ArticlesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ArticlesTableSeeder.php',
         'CreateArticlesTable' => __DIR__ . '/../..' . '/database/migrations/2017_02_07_080606_create_articles_table.php',
+        'CreateCategorieTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_24_130922_create_categorie_table.php',
         'CreateCommentsTable' => __DIR__ . '/../..' . '/database/migrations/2017_02_13_142206_create_comments_table.php',
         'CreateFormulaireTable' => __DIR__ . '/../..' . '/database/migrations/2017_02_15_142223_create_formulaire_table.php',
         'CreateLikesTable' => __DIR__ . '/../..' . '/database/migrations/2017_02_16_125119_create_likes_table.php',
@@ -810,6 +811,7 @@ class ComposerStaticInit42e4d550c5c5e94a69a1f609115e0a6e
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
         'UpadteLikeTable' => __DIR__ . '/../..' . '/database/migrations/2017_02_16_144302_upadte_like_table.php',
+        'Update3ArticlesTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_24_132114_update3_articles_table.php',
         'UpdateArticlesTable' => __DIR__ . '/../..' . '/database/migrations/2017_02_07_081652_update_articles_table.php',
         'UpdateUser1Table' => __DIR__ . '/../..' . '/database/migrations/2017_02_10_090759_update_user1_table.php',
         'UpdateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2017_02_08_110208_update_users_table.php',

@@ -51,11 +51,11 @@ $('.like').on('click', function(event){
     data: {isLike: isLike, postId: postId, _token: token}
   })
   .done(function(){
-    event.target.innerText = isLike ? event.target.innerText == 'like' ? 'you like this article' : 'like' : event.target.innerText == 'dislike' ? 'You dont like this article' : 'dislike' ;
+    event.target.innerText = isLike ? event.target.innerText == 'J\'aime' ? 'Vous aimez cet article' : 'J\'aime' : event.target.innerText == 'Je n\'aime pas' ? 'Vous n\'aimez pas cet article' : 'Je n\'aime pas' ;
     if(isLike){
-      event.target.nextElementSibling.innerText = 'dislike';
+      event.target.nextElementSibling.innerText = 'Je n\'aime pas';
     } else {
-      event.target.previousElementSibling.innerText = 'like';
+      event.target.previousElementSibling.innerText = 'J\'aime';
     }
   });
 

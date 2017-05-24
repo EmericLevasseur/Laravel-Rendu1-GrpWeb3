@@ -7,7 +7,10 @@ use App\Article;
 use App\User;
 use App\Comment;
 use App\Like;
+use App\Categorie;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class ArticleController extends Controller
 {
@@ -23,9 +26,9 @@ class ArticleController extends Controller
     public function index()
     {
 
-      $articles = Article::paginate(10);
-      $articles->withPath('article');
-      return view('articles.index', ['articles' => $articles]);
+      $articles = Article::all();
+      $user = Auth::user();
+      return view('articles.index', ['articles' => $articles, 'user' => $user]);
 
     }
 
@@ -36,7 +39,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view ('articles.create');
+        $categories = Categorie::all();
+        return view ('articles.create', ['categories' => $categories]);
     }
 
     /**
@@ -45,27 +49,42 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-      $this->validate($request,
-      [
-        'title' => 'required',
-        'content' => 'required'
-      ],
-      [
-        'title.required' => 'un titre est requis.',
-        'content.required' => 'Un contenu est requis.'
-      ]);
+     public function store(Request $request)
+     {
 
-        Article::create([
-          'user_id' => Auth::user()->id,
-          'title' => $request->title,
-          'content' => $request->content,
-        ]);
+       $this->validate($request,
+       [
+         'title' => 'required',
+         'content' => 'required',
+         'categorie' => 'required',
+           'image' => 'required',
+           'adresse' => 'required'
+       ],
+       [
+         'title.required' => 'un titre est requis.',
+         'content.required' => 'Un contenu est requis.',
+          'categorie.required' => 'La categorie est requise',
+          'adresse.required' => 'L\'adresse est requise'
+       ]);
+         Article::create([
+           'user_id' => Auth::user()->id,
+           'title' => $request->title,
+           'content' => $request->content,
+           'categorie_id' => $request->categorie,
+           'adresse' => $request->adresse
+         ]);
 
-        $request->session()->flash('alert-success', 'Article créé!');
-        return redirect()->route('article.index');
-    }
+         $file = $request->file('image');
+         $filename = $request->title . '-' . Auth::user()->id . '.jpg';
+         if($file) {
+             Storage::disk('local')->put($filename, File::get($file));
+             $request->session()->flash('alert-success', 'Article créé!');
+             return redirect()->route('article.index');
+         }else{
+             dd('erreur');
+         }
+
+     }
 
     /**
      * Display the specified resource.

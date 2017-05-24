@@ -159,69 +159,14 @@ a {
   </header>
 
   <div class="flexbin flexbin-margin">
-      <a href="article/11">
-          <img src="https://source.unsplash.com/featured/?man" />
-      </a>
-      <a href="article/11">
-          <img src="https://source.unsplash.com/featured/?woman" />
-      </a>
-      <a href="article/11">
-          <img src="https://source.unsplash.com/featured/?design" />
-      </a>
-      <a href="article/11">
-          <img src="https://source.unsplash.com/featured/?sky" />
-      </a>
-      <a href="article/11">
-          <img src="https://source.unsplash.com/featured/?tree" />
-      </a>
-      <a href="article/11">
-          <img src="https://source.unsplash.com/featured/?cat" />
-      </a>
-      <a href="article/11">
-          <img src="https://source.unsplash.com/featured/?dog" />
-      </a>
-      <a href="article/11">
-          <img src="https://source.unsplash.com/featured/?office" />
-      </a>
-      <a href="article/11">
-          <img src="https://source.unsplash.com/featured/?sea" />
-      </a>
-      <a href="article/11">
-          <img src="https://source.unsplash.com/featured/?green" />
-      </a>
-      <a href="article/11">
-          <img src="https://source.unsplash.com/featured/?fashion" />
-      </a>
-      <a href="article/11">
-          <img src="https://source.unsplash.com/featured/?architecture" />
-      </a>
-      <a href="article/11">
-          <img src="https://source.unsplash.com/featured/?art" />
-      </a>
-     <a href="article/11">
-          <img src="https://source.unsplash.com/featured/?style" />
-      </a>
-      <a href="article/11">
-          <img src="https://source.unsplash.com/featured/?animal" />
-      </a>
-      <a href="article/11">
-          <img src="https://source.unsplash.com/featured/?home" />
-      </a>
-      <a href="article/11">
-          <img src="https://source.unsplash.com/featured/?flower" />
-      </a>
-      <a href="article/11">
-          <img src="https://source.unsplash.com/featured/?grass" />
-      </a>
-      <a href="article/11">
-          <img src="https://source.unsplash.com/featured/?market" />
-      </a>
-      <a href="article/11">
-          <img src="http://lafilledecorinthe.com/wordpress/wp-content/uploads/2015/05/Varini.jpg" />
-      </a>
-      <a href="article/11">
-          <img src="https://www.sneak-art.com/wp-content/uploads/2016/06/Mur-Street-Art-Obey-Paris-13-Lionel-Belluteau.jpg" />
-      </a>
+		@foreach($articles as $article)
+		<a href="article/{{$article->id}}">
+			@if (Storage::disk('local')->has($article->title . '-' . $user->id . '.jpg'))
+				<img src="{{ route('account.image', ['filename' => $article->title . '-' . $user->id . '.jpg']) }}">
+			@endif
+		</a>
+		@endforeach
+
   </div>
 
 </div>
