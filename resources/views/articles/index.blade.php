@@ -145,11 +145,11 @@ a {
 
 @section('content')
 
-<div class="wrapper">
+<div id="wrapper">
 <header>
   <div class="headline">
     <h1 class="animated fadeInLeft">Street Art</h1>
-  <div class="arrow"><a href="article"><img src="http://marcelklacan.com/images/icon.png" alt="" /></a></div>
+  <div class="arrow"><a class="js-scrollTo" href="#wrapper"><img src="http://marcelklacan.com/images/icon.png" alt="" /></a></div>
 
   </div>
 <ul id="slides">
@@ -201,6 +201,15 @@ gulp.task('watch', function () {
 
 
 // });
+
+$(document).ready(function() {
+		$('.js-scrollTo').on('click', function() { // Au clic sur un élément
+			var page = $(this).attr('href'); // Page cible
+			var speed = 750; // Durée de l'animation (en ms)
+			$('html, body').animate( { scrollTop: $(page).offset().top }, speed ); // Go
+			return false;
+		});
+	});
 </script>
 
 @endsection

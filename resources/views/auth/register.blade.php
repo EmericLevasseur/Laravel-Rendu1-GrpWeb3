@@ -283,6 +283,7 @@ body .container .content .signup-cont {
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 
+
 <section class="container">
 		    <article class="half">
 			        <center>The Parisian</center>
@@ -294,15 +295,32 @@ body .container .content .signup-cont {
 
 
 				            <div class="signin-cont cont">
-					                <form action="#" method="post" enctype="multipart/form-data">
-						                    <input type="email" name="email" id="email" class="inpt" required="required" placeholder="Email">
+					                <form action="{{ route('login') }}" method="post" enctype="multipart/form-data">
+                            {{ csrf_field() }}
+                              <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+						                    <input type="email" name="email" id="email" class="inpt" required="required" placeholder="Email" value="{{ old('email') }}" required autofocus>
 						                    <label for="email">Email</label>
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+
+                                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
 						                    <input type="password" name="password" id="password" class="inpt" required="required" placeholder="Mot de passe">
                 						    <label for="password">Mot de passe</label>
-						                    <input type="checkbox" id="remember" class="checkbox" checked>
+
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+
+						                    <input type="checkbox" id="remember" class="checkbox" >
 						                    <div class="submit-wrap">
 							                        <input type="submit" value="Connexion" class="submit">
-							                        <a href="#" class="more">Mot de passe oublié ?</a>
+							                        <a href="{{ route('password.request') }}" class="more">Mot de passe oublié ?</a>
 						                    </div>
         					        </form>
     				        </div>
@@ -310,13 +328,41 @@ body .container .content .signup-cont {
 
 
     				        <div class="signup-cont cont">
-                <form action="#" method="post" enctype="multipart/form-data">
-						                    <input type="name" name="name" id="name" class="inpt" required="required" placeholder="Your name">
+                      <form role="form" method="POST" action="{{ route('register') }}">
+                          {{ csrf_field() }}
+						                    <input type="name" name="name" id="name" class="inpt{{ $errors->has('name') ? ' has-error' : '' }}" required="required" placeholder="Your name">
 						                    <label for="name">Nom</label>
-                    <input type="email" name="email" id="email" class="inpt" required="required" placeholder="Your email">
+
+                                <div class="col-md-6">
+                                    <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+
+                                    @if ($errors->has('name'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('name') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+
+                                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                    <input type="email" name="email" id="email" class="inpt" required="required" placeholder="Your email" value="{{ old('email') }}">
 						                    <label for="email">Email</label>
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+
+                                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
 						                    <input type="password" name="password" id="password" class="inpt" required="required" placeholder="Your password">
                 						    <label for="password">Mot de passe</label>
+
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+
 						                    <div class="submit-wrap">
 							                        <input type="submit" value="Sign up" class="submit">
 						                    </div>
@@ -326,7 +372,6 @@ body .container .content .signup-cont {
 		    </article>
 		    <div class="half bg"></div>
 	</section>
-
 <script>
   $('.tabs .tab').click(function(){
     if ($(this).hasClass('signin')) {
