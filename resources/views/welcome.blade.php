@@ -165,14 +165,13 @@ color: white;
       <nav class="navbar navbar-fixed-top">
         <div class="container">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">Paris Photography</a>
+            <a class="navbar-brand" href="#">The Parisian</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             @if (Route::has('login'))
             <ul class="nav navbar-nav navbar-right">
               @if (Auth::check())
-              <li><a href="{{ url('/home') }}">Accueil</a></li>
-              <li><a href="{{ url('/article') }}">Articles</a></li>
+              <li><a href="{{ url('/home') }}">Menu</a></li>
               @else
               <li><a href="{{ url('/login') }}">Connexion</a></li>
               <li><a href="{{ url('/register') }}">Inscription</a></li>
