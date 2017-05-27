@@ -424,7 +424,7 @@ a:hover, a:focus{
         </div>
         <footer class="profile__footer profile__socials">
           <div class="wrapper">
-            <a href="#" class="button">Modifier</a>
+            <a href="{{ url('/editUser') }}" class="button">Modifier</a>
           </div>
        </footer>
       </article>
