@@ -59,10 +59,6 @@
                         <li><a href="{{ url('/article/create') }}">Créer un article</a></li>
 
                         <li><a href="{{ url('/article') }}">Liste d'articles</a></li>
-                        @if (Auth::user()->isAdmin == 1)
-                        <li><a href="{{ url('/admin') }}">Administration</a></li>
-                        @else
-                        @endif
 
                         <li><a href="{{ url('/user') }}">Profil</a></li>
                         <li class="dropdown">
