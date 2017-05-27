@@ -55,6 +55,7 @@
                             <li><a href="{{ route('login') }}">Connexion</a></li>
                             <li><a href="{{ route('register') }}">S'enregister</a></li>
                         @else
+                                      <li><a href="{{ url('/home') }}">Menu</a></li>
                         <li><a href="{{ url('/article/create') }}">Créer un article</a></li>
 
                         <li><a href="{{ url('/article') }}">Liste d'articles</a></li>
@@ -64,36 +65,18 @@
                         @endif
 
                         <li><a href="{{ url('/user') }}">Profil</a></li>
-                        <li><a href="{{ url('/sendmail') }}">Contact</a></li>
 
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+                        <li>
+                            <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                                Déconnexion
+                            </a>
 
-
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Déconnexion
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                    @if ( Auth::user()->isAdmin == 1)
-                                    <li>
-                                        <a href="{{ url('/admin') }}">
-                                            Administration
-                                        </a>
-                                    </li>
-                                    @endif
-                                </ul>
-                            </li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
                         @endif
                     </ul>
                 </div>

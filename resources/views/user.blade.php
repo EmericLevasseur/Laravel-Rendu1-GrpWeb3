@@ -87,6 +87,10 @@ a {
   transition: border-color .4s ease-out .1s;
 }
 
+.profile__article:hover{
+  border: 2px solid white !important;
+}
+
 .profile:hover .profile__avatar{
   transition: border-color .4s ease-out .2s;
 }
@@ -350,7 +354,8 @@ a:hover, a:focus{
   color: black !important;
   text-align: center;
   text-decoration: none;
-  color: #2194E0;
+  text-shadow: 1px 1px 1px black !important;
+  color: white !important;
   border: 2px solid #2194E0;
   font-size: 24px;
   display: inline-block;
