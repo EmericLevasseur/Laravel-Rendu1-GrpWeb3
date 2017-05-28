@@ -55,12 +55,10 @@
                             <li><a href="{{ route('login') }}">Connexion</a></li>
                             <li><a href="{{ route('register') }}">S'enregister</a></li>
                         @else
-                                      <li><a href="{{ url('/home') }}">Menu</a></li>
-                        <li><a href="{{ url('/article/create') }}">Créer un article</a></li>
+                                      <li><a href="{{ url('/home') }}">Menu catégories</a></li>
+                                      <li><a href="{{ url('/article') }}">Tout les articles</a></li>
+                                      <li><a href="{{ url('/article/create') }}">Poster un article</a></li>
 
-                        <li><a href="{{ url('/article') }}">Liste d'articles</a></li>
-
-                        <li><a href="{{ url('/user') }}">Profil</a></li>
                         <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -69,14 +67,17 @@
 
 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Déconnexion
-                                        </a>
+                                        <li><a href="{{ url('/article') }}">Mes articles</a></li>
+                                        <li><a href="{{ url('/user') }}">Profil</a></li>
+                                        <li>
+                                            <a href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                                Déconnexion
+                                            </a>
+                                            </li>
                                 </ul>
-                            </li>
+
                         @endif
                     </ul>
                 </div>

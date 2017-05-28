@@ -21,7 +21,6 @@ a {
   margin-bottom: 0px !important;
 }
 
-
     .title {
         font-size: 50px;
         color: white;
@@ -44,8 +43,8 @@ a {
     .button {
       padding: 0.75em 2em;
       background-color: black;
-      color: black !important;
-      border: 2px solid black;
+      color: white !important;
+      border: 1px solid white;
       text-align: center;
       text-decoration: none;
       text-shadow: 1px 1px 1px black !important;
@@ -84,6 +83,12 @@ a {
       -webkit-transition: all 0.5s ease-in-out;
       transition: all 0.5s ease-in-out;
     }
+
+    .bloc {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 5%;
+      margin: 10%;
+    }
 </style>
 
 @extends('layouts.app')
@@ -91,6 +96,7 @@ a {
 @section('content')
   <section class="row new-post">
     <div class="col-md-6 col-md-offset-3">
+      <div class="bloc">
       <header>
         <center><h3>
           Modifier votre profil
@@ -124,5 +130,6 @@ a {
         <input type="hidden" name="_token" value="{{ Session::token()}}">
       </form>
     </div>
+  </div>
   </section>
 @endsection

@@ -356,7 +356,7 @@ a:hover, a:focus{
   text-decoration: none;
   text-shadow: 1px 1px 1px black !important;
   color: white !important;
-  border: 2px solid #2194E0;
+  border: 2px solid black;
   font-size: 24px;
   display: inline-block;
   border-radius: 0.3em;
