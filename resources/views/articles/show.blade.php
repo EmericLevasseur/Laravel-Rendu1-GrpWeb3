@@ -117,6 +117,7 @@ a {
 <center><a href="#" class="like btn btn-success">{{Auth::user()->likes()->where('article_id', $article->id)->first() ? Auth::user()->likes()->where('article_id', $article->id)->first()->like == 1 ?'Vous aimez cet article':'J\'aime':'J\'aime' }}</a>
 <a href="#"  class="like btn btn-danger">{{Auth::user()->likes()->where('article_id', $article->id)->first() ? Auth::user()->likes()->where('article_id', $article->id)->first()->like == 0 ? 'Vous n\'aimez pas cet article':'Je n\'aime pas':'Je n\'aime pas' }}</a>
 </center>
+<center><button>Supprimer l'article</button></center>
 </div>
 <script>
   var token ='{{ Session::token() }}'
