@@ -71,7 +71,7 @@
 
 
 
-                                <ul class="dropdown-menu listage" role="menu" style="background-color:#5e5b4d">
+                                <ul class="dropdown-menu listage" role="menu" style="background-color:black">
                                         <li><a href="{{ url('/article') }}">Mes articles</a></li>
                                         <li><a href="{{ url('/user') }}">Profil</a></li>
                                         <li><a href="{{ route('logout') }}"
