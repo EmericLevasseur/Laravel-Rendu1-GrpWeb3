@@ -33,7 +33,7 @@ Route::get('/admin', [
 
 Route::get('/comment/{id}', [
   'uses' => 'ArticleController@destroyComment',
-  'as' => 'comment.destroyComment'
+  'as' => 'destroyComment'
 ]);
 
 
