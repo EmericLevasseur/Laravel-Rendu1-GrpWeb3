@@ -230,6 +230,7 @@ class ArticleController extends Controller
 
     public function postLikePost(Request $request)
     {
+      
       $article_id = $request['postId'];
       $is_like = $request['isLike'] === 'true';
       $update = false;
@@ -254,11 +255,14 @@ class ArticleController extends Controller
       $like->article_id = $article->id;
       if($update){
         $like->update();
+
       }else{
         $like->save();
       }
       return null;
     }
+
+
 
 
 
