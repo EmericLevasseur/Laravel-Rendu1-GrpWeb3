@@ -408,12 +408,29 @@ a:hover, a:focus{
         </header>
         <div class="profile__body">
           <div class="profile__row">
-            @for ($i = 0; $i < 3; $i++)
-            <div class="profile__group">
-              <span class="profile__value"><img src="{{ route('account.image', ['filename' => $articles[$i]->title . '-' . $id . '.jpg']) }}" class="profile__article" alt="avatar of Stas Melnikov"></span>
-              <span class="profile__param">{{ $articles[$i]->title }}</span>
-            </div>
-            @endfor
+            @if (count($articles) == 0)
+              <div class="profile__group">
+              </div>
+            @elseif (count($articles) == 1)
+              <div class="profile__group">
+                <span class="profile__value"><img src="{{ route('account.image', ['filename' => $articles[0]->title . '-' . $id . '.jpg']) }}" class="profile__article" alt="avatar of Stas Melnikov"></span>
+                <span class="profile__param">{{ $articles[0]->title }}</span>
+              </div>
+            @elseif (count($articles) == 2)
+              @for ($i = 0; $i < 2; $i++)
+              <div class="profile__group">
+                <span class="profile__value"><img src="{{ route('account.image', ['filename' => $articles[$i]->title . '-' . $id . '.jpg']) }}" class="profile__article" alt="avatar of Stas Melnikov"></span>
+                <span class="profile__param">{{ $articles[$i]->title }}</span>
+              </div>
+              @endfor
+            @else
+              @for ($i = 0; $i < 3; $i++)
+              <div class="profile__group">
+                <span class="profile__value"><img src="{{ route('account.image', ['filename' => $articles[$i]->title . '-' . $id . '.jpg']) }}" class="profile__article" alt="avatar of Stas Melnikov"></span>
+                <span class="profile__param">{{ $articles[$i]->title }}</span>
+              </div>
+              @endfor
+            @endif
           </div>
         </div>
         <footer class="profile__footer profile__socials">
