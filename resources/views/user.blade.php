@@ -402,24 +402,18 @@ a:hover, a:focus{
     <div class="main-container">
       <article class="profile">
         <header class="profile__header">
-          <img src="http://christine-photographe.com/wp-content/uploads/2016/10/photographe-professionnel-%C3%A0-toulon-dans-le-var-600x600.jpg" class="profile__avatar" alt="avatar of Stas Melnikov">
-          <h3 class="profile__name">Emma</h3>
-          <span class="profile__post">emma@gmail.com</span>
+          <img src="{{ route('account.image', ['filename' => $name . '-' . $id . '.jpg']) }}" class="profile__avatar" alt="avatar of Stas Melnikov">
+          <h3 class="profile__name">{{$name}}</h3>
+          <span class="profile__post">{{$email}}</span>
         </header>
         <div class="profile__body">
           <div class="profile__row">
+            @for ($i = 0; $i < 3; $i++)
             <div class="profile__group">
-              <span class="profile__value"><img src="https://www.sneak-art.com/wp-content/uploads/2016/06/Mur-Street-Art-Obey-Paris-13-Lionel-Belluteau.jpg" class="profile__article" alt="avatar of Stas Melnikov"></span>
-              <span class="profile__param">Obey Propaganda</span>
+              <span class="profile__value"><img src="{{ route('account.image', ['filename' => $articles[$i]->title . '-' . $id . '.jpg']) }}" class="profile__article" alt="avatar of Stas Melnikov"></span>
+              <span class="profile__param">{{ $articles[$i]->title }}</span>
             </div>
-            <div class="profile__group">
-              <span class="profile__value"><img src="https://r.lvmh-static.com/uploads/2015/02/fondation-louis-vuitton-casacade-1584x876.jpg" class="profile__article" alt="avatar of Stas Melnikov"></span>
-              <span class="profile__param">Fondation Louis Vitton</span>
-            </div>
-            <div class="profile__group">
-              <span class="profile__value"><img src="http://lafilledecorinthe.com/wordpress/wp-content/uploads/2015/05/Varini.jpg" class="profile__article" alt=""></span>
-              <span class="profile__param">Arc de la batterie</span>
-            </div>
+            @endfor
           </div>
         </div>
         <footer class="profile__footer profile__socials">

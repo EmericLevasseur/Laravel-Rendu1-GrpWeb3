@@ -474,7 +474,7 @@ a {
     <div class="image" style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/8/88/Bir-Hakeim-3.jpg)"></div>
     <div class="overlay"></div>
     <div class="content">
-      <h1 class="title" data-title="Structure">Structure</h1>
+      <h1 class="title" data-title="Structure">Perspective</h1>
       <div class="emblem" style="background-image: url(http://icon-icons.com/icons2/865/PNG/512/Citycons_target_icon-icons.com_67938.png)"></div>
       <ul class="city-info">
         <div class="arrow"><a href="article">Accéder</a><img src="http://marcelklacan.com/images/icon.png" alt="" /></div>

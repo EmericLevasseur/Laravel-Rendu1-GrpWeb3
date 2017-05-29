@@ -112,26 +112,25 @@ a {
   {{$article->title}}
 </div>
 <div id="polina" class="animated fadeInleft">
-<h1>
-  Auteur de l'article : {{$user->name}}
-</h1>
-<p>
-  {{$article->content}}
-</p>
-<p class="adresse">
-  Adresse : {{$article->adresse}}
-</p>
-<button>Réagir</button>
-<article class="" data-postid="{{$article->id}}">
-<center>
-  <a href="#" class="like btn btn-success">{{Auth::user()->likes()->where('article_id', $article->id)->first() ? Auth::user()->likes()->where('article_id', $article->id)->first()->like == 1 ?'Vous aimez':'J\'aime':'J\'aime' }}</a>
-  <a href="#"  class="like btn btn-danger">{{Auth::user()->likes()->where('article_id', $article->id)->first() ? Auth::user()->likes()->where('article_id', $article->id)->first()->like == 0 ? 'Vous n\'aimez pas':'J\'aime pas':'J\'aime pas' }}</a>
-</center>
-<<<<<<< Updated upstream
-<center><button>Supprimer l'article</button></center>
-=======
-</article>
->>>>>>> Stashed changes
+  <h1>
+    Auteur de l'article : {{$user->name}}
+  </h1>
+  <p>
+    {{$article->content}}
+  </p>
+  <p class="adresse">
+    Adresse : {{$article->adresse}}
+  </p>
+  <button>Réagir</button>
+  <article class="" data-postid="{{$article->id}}">
+    <center>
+      <a href="#" class="like btn btn-success">{{Auth::user()->likes()->where('article_id', $article->id)->first() ? Auth::user()->likes()->where('article_id', $article->id)->first()->like == 1 ?'Vous aimez':'J\'aime':'J\'aime' }}</a>
+      <a href="#"  class="like btn btn-danger">{{Auth::user()->likes()->where('article_id', $article->id)->first() ? Auth::user()->likes()->where('article_id', $article->id)->first()->like == 0 ? 'Vous n\'aimez pas':'J\'aime pas':'J\'aime pas' }}</a>
+    </center>
+    <center><button>Supprimer l'article</button></center>
+
+  </article>
+
 </div>
 <script>
   var token ='{{ Session::token() }}'

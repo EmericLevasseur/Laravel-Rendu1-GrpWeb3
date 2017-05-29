@@ -30,7 +30,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+      $articles = Article::all();
+      $user = Auth::user();
+      return view('home', ['articles' => $articles, 'user' => $user]);
+      
     }
     public function indexUser(){
       if(Auth::check()){

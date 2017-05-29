@@ -119,7 +119,11 @@ a {
 <br>
 <SELECT name="categorie" size="1">
   @foreach($categories AS $categorie)
-  <option value="{{$categorie->id_cat}}">{{$categorie->libelle}}</option>
+    @if($categorie->id_cat == 5)
+      <option style="" value="{{$categorie->id_cat}}">{{$categorie->libelle}}</option>
+    @else
+      <option value="{{$categorie->id_cat}}">{{$categorie->libelle}}</option>
+    @endif
   @endforeach
 </select>
 <center><button type="submit" name="button" class="button">Poster</button></center>

@@ -160,11 +160,13 @@ a {
 
   <div class="flexbin flexbin-margin">
 		@foreach($articles as $article)
-		<a href="article/{{$article->id}}">
-			@if (Storage::disk('local')->has($article->title . '-' . $user->id . '.jpg'))
-				<img src="{{ route('account.image', ['filename' => $article->title . '-' . $user->id . '.jpg']) }}">
+			@if($article->categorie_id == 1)
+				<a href="article/{{$article->id}}">
+					@if (Storage::disk('local')->has($article->title . '-' . $user->id . '.jpg'))
+						<img src="{{ route('account.image', ['filename' => $article->title . '-' . $user->id . '.jpg']) }}">
+					@endif
+				</a>
 			@endif
-		</a>
 		@endforeach
 
   </div>
