@@ -35,7 +35,6 @@ h1 {
   text-align: center;
 }
 
-
 .adresse {
   font-weight: bold !important;
   font-size: 18px !important;
@@ -99,6 +98,25 @@ a {
     background-color: rgba(0, 0, 0, 0.9);
 }
 
+.espace-commentaire{
+  font-weight:100;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  padding: 2rem;
+  width: 33%;
+  margin:2rem;
+  float: left;
+  font-size: 1.2rem;
+  animation-duration: 1s;
+  animation-delay: 0.4s;
+  transition: all 1s;
+}
+.espace-commentaire:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+.sendcom{
+  margin-top:2%;
+}
 </style>
 
 @extends('layouts.app')
@@ -131,46 +149,49 @@ a {
 
   </article>
 
-        <div class="espace-commentaire">
-          @if (!empty($article->comments))
-        <h2>Liste des commentaires</h2>
-        @foreach($article->comments AS $comment)
-            <div style="border-left:3px solid orange; padding-left:10px;">
-                <p>
-                    {{ $comment->comment }}
-                </p>
-                @if($comment->user)
-                  <div class="info">
-                    Posted by {{ $comment->user->name  }} on {{$article->created_at}}
-                    @if (Auth::user()->isAdmin == 1|| $article->user_id == Auth::user()->id)
-                    <form action="{{ route('destroyComment', $comment->id) }}" method="post" style="display: inline-block;">
-                        {{ csrf_field() }}
-                        <input type="hidden" name="_method" value="DELETE">
-                        <button class="btn btn-danger">Supprimer</button>
-                    </form>
-                    @else
+</div>
+            <div class=" col-md-8 espace-commentaire">
+              @if (!empty($article->comments))
+            <h2>Liste des commentaires</h2>
+            @foreach($article->comments AS $comment)
+                <div style="border-left:3px solid orange; padding-left:10px;">
+                    <p>
+                        {{ $comment->comment }}
+                    </p>
+                    @if($comment->user)
+                      <div class="info">
+                        Posted by {{ $comment->user->name  }} on {{$article->created_at}}
+                        @if (Auth::user()->isAdmin == 1|| $article->user_id == Auth::user()->id)
+                        <form action="{{ route('destroyComment', $comment->id) }}" method="post" style="display: inline-block;">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button class="btn btn-danger">Supprimer</button>
+                        </form>
+                        @else
+                        @endif
+                      </div>
                     @endif
-                  </div>
-                @endif
+                </div>
+                <hr>
+
+            @endforeach
+            @else
+              <h2>Aucun commentaire</h2>
+            @endif
+
+            <form action="{{ route('article.comment', $article->id) }}" method="post">
+                {{ csrf_field() }}
+                <textarea name="comment" class="form-control" style="background: rgba(255,255,255,0.23);
+                color: #fff;
+                transition: .3s background;" placeholder="Votre commentaire"></textarea>
+                <div class="space">
+              </div>
+                <center><button class="btn btn-primary sendcom">Envoyer</button></center>
+            </form>
             </div>
-            <hr>
-
-        @endforeach
-        @else
-          <h2>Aucun commentaire</h2>
-        @endif
-
-        <form action="{{ route('article.comment', $article->id) }}" method="post">
-            {{ csrf_field() }}
-            <textarea name="comment" class="form-control" placeholder="Votre commentaire"></textarea>
-            <div class="space">
-          </div>
-            <center><button class="btn btn-primary">Envoyer</button></center>
-        </form>
-        </div>
 </div>
 
-</div>
+
 <script>
   var token ='{{ Session::token() }}'
   var urlLike ="{{ route('article.like') }}"
