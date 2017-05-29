@@ -11,6 +11,7 @@ use App\Categorie;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use App\Exceptions\Handler;
 
 class ArticleController extends Controller
 {
@@ -28,17 +29,17 @@ class ArticleController extends Controller
        var_dump('archi');exit();
        $articles = Article::all();
        $user = Auth::user();
-       return view('articles.architecture', ['articles' => $articles, 'user' => $user]);
+       return view('architecture', ['articles' => $articles, 'user' => $user]);
 
      }
 
     public function index()
     {
-      var_dump('index');exit();
+      
 
       $articles = Article::all();
       $user = Auth::user();
-      return view('articles.architecture', ['articles' => $articles, 'user' => $user]);
+      return view('articles.index', ['articles' => $articles, 'user' => $user]);
 
     }
 

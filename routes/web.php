@@ -80,5 +80,5 @@ Route::post('/like', [
 
 Route::get('/article/architecture', [
   'uses' => 'ArticleController@architecture',
-  'as' => 'article.architecture'
+  'as' => 'architecture'
 ]);
