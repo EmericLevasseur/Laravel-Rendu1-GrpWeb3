@@ -66,14 +66,14 @@
 
 
 
-                                <ul class="dropdown-menu" role="menu">
+                                <ul class="dropdown-menu" role="menu" style="background-color:black">
                                         <li><a href="{{ url('/article') }}">Mes articles</a></li>
                                         <li><a href="{{ url('/user') }}">Profil</a></li>
-                                        <a href="{{ route('logout') }}"
+                                        <li><a href="{{ route('logout') }}"
                                           onclick="event.preventDefault();
                                                    document.getElementById('logout-form').submit();">
                                           Déconnexion
-                                      </a>
+                                      </a></li>
 
                                       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                           {{ csrf_field() }}
