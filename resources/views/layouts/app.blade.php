@@ -69,13 +69,15 @@
                                 <ul class="dropdown-menu" role="menu">
                                         <li><a href="{{ url('/article') }}">Mes articles</a></li>
                                         <li><a href="{{ url('/user') }}">Profil</a></li>
-                                        <li>
-                                            <a href="{{ route('logout') }}"
-                                                onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                                                Déconnexion
-                                            </a>
-                                            </li>
+                                        <a href="{{ route('logout') }}"
+                                          onclick="event.preventDefault();
+                                                   document.getElementById('logout-form').submit();">
+                                          Déconnexion
+                                      </a>
+
+                                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                          {{ csrf_field() }}
+                                      </form>
                                 </ul>
 
                         @endif
