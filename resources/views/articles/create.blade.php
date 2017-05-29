@@ -117,7 +117,7 @@ a {
 <br>
 <input type="file" name="image" class="form-control">
 <br>
-<SELECT name="categorie" size="1">
+<SELECT name="categorie" size="1" style="color:black">
   @foreach($categories AS $categorie)
     @if($categorie->id_cat == 5)
       <option style="" value="{{$categorie->id_cat}}">{{$categorie->libelle}}</option>
