@@ -23,14 +23,36 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function architecture()
+     {
+       var_dump('archi');exit();
+       $articles = Article::all();
+       $user = Auth::user();
+       return view('articles.architecture', ['articles' => $articles, 'user' => $user]);
+
+     }
+
     public function index()
+    {
+      var_dump('index');exit();
+
+      $articles = Article::all();
+      $user = Auth::user();
+      return view('articles.architecture', ['articles' => $articles, 'user' => $user]);
+
+    }
+
+    public function streetart()
     {
 
       $articles = Article::all();
       $user = Auth::user();
-      return view('articles.index', ['articles' => $articles, 'user' => $user]);
+      return view('articles.streetart', ['articles' => $articles, 'user' => $user]);
 
     }
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -230,7 +252,7 @@ class ArticleController extends Controller
 
     public function postLikePost(Request $request)
     {
-      
+
       $article_id = $request['postId'];
       $is_like = $request['isLike'] === 'true';
       $update = false;

@@ -77,3 +77,8 @@ Route::post('/like', [
   'uses' => 'ArticleController@postLikePost',
   'as' => 'article.like'
 ]);
+
+Route::get('/article/architecture', [
+  'uses' => 'ArticleController@architecture',
+  'as' => 'article.architecture'
+]);
