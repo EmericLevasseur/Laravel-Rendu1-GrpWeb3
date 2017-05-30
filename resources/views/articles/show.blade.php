@@ -149,12 +149,8 @@ a {
     </center>
     <center>
       @if (Auth::user()->isAdmin == 1 || $article->user_id == Auth::user()->id)
-        <a href="{{ url('/article') }}/{{$article->id}}/edit" class="btn btn-success btn-taille">Modifier</a>
-        <form action="{{ route('article.destroy', $article->id) }}" method="post" style="display: inline-block;">
-            {{ csrf_field() }}
-            <input type="hidden" name="_method" value="DELETE">
-            <button class="btn btn-danger btn-taille">Supprimer</button>
-        </form></center>
+        <a href="{{ url('/article') }}/{{$article->id}}/edit" class="btn btn-success btn-taille" style="margin-top:3%">Modifier</a>
+
       @endif
     </center>
 
