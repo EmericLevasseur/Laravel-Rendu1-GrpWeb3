@@ -297,29 +297,50 @@ body .container .content .signup-cont {
     				        <div class="signup-cont cont">
                       <form role="form" method="POST" action="{{ route('register') }}">
                           {{ csrf_field() }}
-						                    <input type="name" name="name" id="name" class="inpt{{ $errors->has('name') ? ' has-error' : '' }}" required="required" placeholder="Votre nom">
+
+                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+						                    <input type="name" name="name" id="name" class="inpt" required="required" placeholder="Votre nom">
 						                    <label for="name">Nom</label>
 
-
-                                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                    <input type="email" name="email" id="email" class="inpt" required="required" placeholder="Your email" value="{{ old('email') }}">
-						                    <label for="email">Email</label>
-
-                                @if ($errors->has('email'))
+                                @if ($errors->has('name'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
+                              </div>
+
+                                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                  <input type="email" name="email" id="email" class="inpt" required="required" placeholder="Your email" value="{{ old('email') }}">
+  						                    <label for="email">Email</label>
+
+                                  @if ($errors->has('email'))
+                                      <span class="help-block">
+                                          <strong>{{ $errors->first('email') }}</strong>
+                                      </span>
+                                  @endif
+                                </div>
 
                                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-						                    <input type="password" name="password" id="password" class="inpt" required="required" placeholder="Your password">
-                						    <label for="password">Mot de passe</label>
+  						                    <input type="password" name="password" id="password" class="inpt" required="required" placeholder="Your password">
+                  						    <label for="password">Mot de passe</label>
+
+                                  @if ($errors->has('password'))
+                                      <span class="help-block">
+                                          <strong>{{ $errors->first('password') }}</strong>
+                                      </span>
+                                  @endif
+                                </div>
+                                <div class="form-group">
+                                  <input id="password-confirm" type="password" class="inpt" name="password_confirmation" required placeholder="Confirm password">
+                                  <label for="password">Confirmer Mot de passe</label>
+                                </div>
+
 
 						                    <div class="submit-wrap">
 							                        <input type="submit" value="Sign up" class="submit">
 						                    </div>
         					        </form>
-            </div>
+                        </div>
 			        </div>
 		    </article>
 		    <div class="half bg"></div>
