@@ -58,7 +58,6 @@
                         @else
                                       <li><a href="{{ url('/home') }}">Menu catégories</a></li>
                                       <li><a href="{{ url('/article') }}">Tous les articles</a></li>
-                                      <li><a href="{{ route('mesArticles') }}">Mes Articles</a></li>
                                       <li><a href="{{ url('/article/create') }}">Poster un article</a></li>
 
                         <li class="dropdown">
@@ -69,7 +68,7 @@
 
 
                                 <ul class="dropdown-menu listage" role="menu" style="background-color:black">
-                                        <li><a href="{{ url('/article') }}">Mes articles</a></li>
+                                        <li><a href="{{ route('mesArticles') }}">Mes Articles</a></li>
                                         <li><a href="{{ url('/user') }}">Profil</a></li>
                                         <li><a href="{{ route('logout') }}"
                                           onclick="event.preventDefault();
