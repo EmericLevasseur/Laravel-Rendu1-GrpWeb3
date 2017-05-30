@@ -142,18 +142,11 @@ html {
 
 
 	<div class="galeria">
-<<<<<<< HEAD
 		@foreach($articles as $article)
 			@if (Storage::disk('local')->has($article->title . '-' . $user->id . '.jpg'))
 		  	<div class="imagen" style="background-image: url({{ route('account.image', ['filename' => $article->title . '-' . $user->id . '.jpg']) }})"></div>
 		 	@endif
 	 @endforeach
-=======
-	 <div class="imagen" style="background-image: url(http://lafilledecorinthe.com/wordpress/wp-content/uploads/2015/05/Varini.jpg)"></div>
-	 <div class="imagen" style="background-image: url(http://lafilledecorinthe.com/wordpress/wp-content/uploads/2015/05/Varini.jpg)"></div>
-	 <div class="imagen" style="background-image: url(http://lafilledecorinthe.com/wordpress/wp-content/uploads/2015/05/Varini.jpg)"></div>
-	 <div class="imagen" style="background-image: url(http://lafilledecorinthe.com/wordpress/wp-content/uploads/2015/05/Varini.jpg)"></div>
->>>>>>> origin/master
 	</div>
 
 
