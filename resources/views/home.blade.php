@@ -453,7 +453,7 @@ a {
       <h1 class="title" data-title="StreetArt">StreetArt</h1>
       <div class="emblem" style="background-image: url(http://icon-icons.com/icons2/537/PNG/512/paint-brush-2_icon-icons.com_52930.png)"></div>
       <ul class="city-info">
-        <div class="arrow"><a href="article">Accéder</a><img src="http://marcelklacan.com/images/icon.png" alt="" /></div>
+        <div class="arrow"><a href="streetart">Accéder</a><img src="http://marcelklacan.com/images/icon.png" alt="" /></div>
       </ul>
     </div>
     <div class="btn-close"></div>
