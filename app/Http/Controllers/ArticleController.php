@@ -44,7 +44,6 @@ class ArticleController extends Controller
     public function mesArticles()
     {
 
-
       $articles = Article::all();
       $user = Auth::user();
       return view('articles.mesArticles', ['articles' => $articles, 'user' => $user]);
@@ -219,6 +218,7 @@ class ArticleController extends Controller
       if(Auth::check() && Auth::user()->isAdmin == "1" || $article->user_id == Auth::user()->id) {
 
         $article->delete(['user_id' => Auth::user()->id,]);
+
 
       session()->flash('alert-danger', 'Article supprimé!');
       return redirect()->route('article.index');
