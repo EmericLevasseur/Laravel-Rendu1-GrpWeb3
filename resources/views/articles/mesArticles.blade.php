@@ -44,73 +44,85 @@ a {
    background-color: rgba(0, 0, 0, 0.8);
    padding-left: 3%;
    padding-right: 3%;
+	 left: 75%;
 }
 
 
 
 .headline h1{
   font-size: 4.5rem;
-  left: 3%;
 	animation-duration: 1s;
 }
 
 
 
-.slide{
-  height: 70%;
-  position: relative;
-  left: 0;
-  top: 0;
+.galeria {
+position: relative;
+width: 100%; /* Ancho a ocupar por la galería sobre el total disponible */
+overflow: hidden;
+}
+.galeria:before {
+content: "";
+position: absolute;
+width: 100%;
+height: 100%;
+opacity: .1;
+}
+.imagen {
+position: relative;
+width: 15%; /* Ancho de la miniatura sobre el ancho total de la galería */
+padding-bottom: 15%; /* Idéntico al anterior para miniaturas cuadradas */
+background-position: 50% 50%;
+-moz-background-size: cover;-webkit-background-size: cover;background-size: cover;
+cursor: pointer;
+}
+.imagen:nth-of-type(1) {
+background-image: url(https://lh4.googleusercontent.com/-3QNEIgX3Gv4/UCPyLTtnmHI/AAAAAAAAEDY/KGb0eEM9GZo/s720/fuerzas-naturaleza.jpg);
+}
+.imagen:nth-of-type(2) {
+background-image: url(https://lh5.googleusercontent.com/-KijskybjlCc/UCPyNCwVxPI/AAAAAAAAEDg/8AwgBhZyhG4/s800/fuerzas-naturaleza2.jpg);
+}
+.imagen:nth-of-type(3) {
+background-image: url(https://lh5.googleusercontent.com/-uGIMoR677PM/UCPyOBjNWVI/AAAAAAAAEDo/XE73W5FQW-c/s800/fuerzas-naturaleza3.jpg);
+}
+.imagen:nth-of-type(4) {
+background-image: url(https://lh5.googleusercontent.com/-nbNq900tVT4/UCPyQeZkP_I/AAAAAAAAEDw/WsBQhD2Da-o/s800/fuerzas-naturaleza4.jpg);
+}
+.imagen:nth-of-type(5) {
+background-image: url(https://lh5.googleusercontent.com/-nbNq900tVT4/UCPyQeZkP_I/AAAAAAAAEDw/WsBQhD2Da-o/s800/fuerzas-naturaleza4.jpg);
+}
+.imagen:before {
+content: "";
+position: absolute;
+top: -700%; /* ((Nºimágenes*2)-1)*100*/
+left: 100%;
+width: 566%; /* (10000/ancho_imagen)-100 */
+height: 400%; /* Nºimagenes*100 */
+background-image: inherit;
+-moz-background-size: cover;-webkit-background-size: cover;background-size: cover;
+-moz-transition: all .8s ;-webkit-transition: all .8s ;transition: all .8s ;
+}
+.imagen:hover:nth-of-type(1):before {
+top: 0%; /* (Nº.nth-1)*(-100) */
+}
+.imagen:hover:nth-of-type(2):before {
+top: -100%; /* (Nº.nth-1)*(-100) */
+}
+.imagen:hover:nth-of-type(3):before {
+top: -200%; /* (Nº.nth-1)*(-100) */
+}
+.imagen:hover:nth-of-type(4):before {
+top: -300%; /* (Nº.nth-1)*(-100) */
+}
+
+html {
   width: 100%;
-  opacity: 0;
-  z-index: 1;
-  transition: opacity 1s;
-  background-size: cover;
-  background-repeat: no-repeat;
+  height: 100%;
+  background: -webkit-gradient(radial, 50%, 0, 50%, 100, color-stop(0%, #c26649), color-stop(100%, #6b220b));
+  background: -webkit-radial-gradient(center, ellipse cover, #c26649 0%, #6b220b 100%);
+  background: -moz-radial-gradient(center, ellipse cover, #c26649 0%, #6b220b 100%);
+  background: radial-gradient(center, ellipse cover, #c26649 0%, #6b220b 100%);
 }
-
-.showing{
-  opacity: 1;
-  z-index: 2;
-}
-
-.slide1{
-  background-image: url("http://www.servcorpconferences.fr/wp-content/uploads/2013/01/square-evii1.jpg");
-}
-
-
-
-.flexbin {
-  display: flex;
-  flex-wrap: wrap;
-  margin: -2.5px; }
-  .flexbin:after {
-    content: '';
-    flex-grow: 999999999;
-    min-width: 300px;
-    height: 0; }
-  .flexbin > * {
-    position: relative;
-    display: block;
-    height: 300px;
-    margin: 2.5px;
-    flex-grow: 1; }
-    .flexbin > * > img {
-      height: 300px;
-      object-fit: cover;
-      max-width: 100%;
-      min-width: 100%;
-      vertical-align: bottom; }
-
-
-      .flexbin > * > img:hover {
-      opacity:0.6;
-      z-index: 1;
-      }
-
-
-  .flexbin.flexbin-margin {
-    margin: 2.5px; }
 
     .arrow img {
       border-radius: 3px;
@@ -148,7 +160,7 @@ a {
 <div id="wrapper">
 <header>
   <div class="headline">
-    <h1 class="animated fadeInLeft">Mes Articles</h1>
+    <h1 class="animated fadeInRight">Mes Articles</h1>
   <div class="arrow"><a class="js-scrollTo" href="#wrapper"><img src="http://marcelklacan.com/images/icon.png" alt="" /></a></div>
 
   </div>
@@ -156,20 +168,12 @@ a {
 
   </header>
 
-  <div class="flexbin flexbin-margin">
-		@foreach($articles as $article)
-			@if($article->categorie_id == 1)
-				<a href="article/{{$article->id}}">
-					@if (Storage::disk('local')->has($article->title . '-' . $user->id . '.jpg'))
-						<img src="{{ route('account.image', ['filename' => $article->title . '-' . $user->id . '.jpg']) }}">
-					@endif
-				</a>
-			@endif
-		@endforeach
-
-  </div>
-
-</div>
+	<div class="galeria">
+	 <div class="imagen"></div>
+	 <div class="imagen"></div>
+	 <div class="imagen"></div>
+	 <div class="imagen"></div>
+	</div>
 
 
 
