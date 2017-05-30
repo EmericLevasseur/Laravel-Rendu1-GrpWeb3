@@ -232,7 +232,7 @@ body .container .content .submit-wrap a:hover {
   text-decoration: underline;
 }
 body .container .content .signup-cont {
-  display: none;
+  display: run-in;
 }
 
 @keyframes slideIn {
@@ -288,60 +288,18 @@ body .container .content .signup-cont {
 		    <article class="half">
 			        <center>The Parisian</center>
 			        <div class="tabs">
-				            <span class="tab signin active"><a href="#signin">Connexion</a></span>
 				            <span class="tab signup"><a href="#signup">Inscription</a></span>
 			        </div>
 			        <div class="content">
-
-
-				            <div class="signin-cont cont">
-					                <form action="{{ route('login') }}" method="post" enctype="multipart/form-data">
-                            {{ csrf_field() }}
-                              <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-						                    <input type="email" name="email" id="email" class="inpt" required="required" placeholder="Email" value="{{ old('email') }}" required autofocus>
-						                    <label for="email">Email</label>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-
-                                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-						                    <input type="password" name="password" id="password" class="inpt" required="required" placeholder="Mot de passe">
-                						    <label for="password">Mot de passe</label>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-
-						                    <input type="checkbox" id="remember" class="checkbox" >
-						                    <div class="submit-wrap">
-							                        <input type="submit" value="Connexion" class="submit">
-							                        <a href="{{ route('password.request') }}" class="more">Mot de passe oublié ?</a>
-						                    </div>
-        					        </form>
-    				        </div>
 
 
 
     				        <div class="signup-cont cont">
                       <form role="form" method="POST" action="{{ route('register') }}">
                           {{ csrf_field() }}
-						                    <input type="name" name="name" id="name" class="inpt{{ $errors->has('name') ? ' has-error' : '' }}" required="required" placeholder="Your name">
+						                    <input type="name" name="name" id="name" class="inpt{{ $errors->has('name') ? ' has-error' : '' }}" required="required" placeholder="Votre nom">
 						                    <label for="name">Nom</label>
 
-                                <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                                    @if ($errors->has('name'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('name') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
 
                                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                     <input type="email" name="email" id="email" class="inpt" required="required" placeholder="Your email" value="{{ old('email') }}">
@@ -356,12 +314,6 @@ body .container .content .signup-cont {
                                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
 						                    <input type="password" name="password" id="password" class="inpt" required="required" placeholder="Your password">
                 						    <label for="password">Mot de passe</label>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
 
 						                    <div class="submit-wrap">
 							                        <input type="submit" value="Sign up" class="submit">
