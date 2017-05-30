@@ -453,7 +453,7 @@ a {
       <h1 class="title" data-title="StreetArt">StreetArt</h1>
       <div class="emblem" style="background-image: url(http://icon-icons.com/icons2/537/PNG/512/paint-brush-2_icon-icons.com_52930.png)"></div>
       <ul class="city-info">
-        <a href="streetart">Accéder</a><img src="http://marcelklacan.com/images/icon.png" alt="" />
+        <div class="arrow"><a href="article">Accéder</a><img src="http://marcelklacan.com/images/icon.png" alt="" /></div>
       </ul>
     </div>
     <div class="btn-close"></div>
@@ -465,7 +465,7 @@ a {
       <h1 class="title" data-title="Architecture">Architecture</h1>
       <div class="emblem" style="background-image: url(http://www.globalemployees.com/images/architectureIcon.png)"></div>
       <ul class="city-info">
-        <div class="arrow"><a href="architecture">Accéder</a><img src="http://marcelklacan.com/images/icon.png" alt="" /></div>
+        <div class="arrow"><a href="article">Accéder</a><img src="http://marcelklacan.com/images/icon.png" alt="" /></div>
       </ul>
     </div>
     <div class="btn-close"></div>
@@ -477,7 +477,7 @@ a {
       <h1 class="title" data-title="Perspective">Perspective</h1>
       <div class="emblem" style="background-image: url(http://icon-icons.com/icons2/865/PNG/512/Citycons_target_icon-icons.com_67938.png)"></div>
       <ul class="city-info">
-        <a href="perspective">Accéder</a><img src="http://marcelklacan.com/images/icon.png" alt="" />
+        <div class="arrow"><a href="article">Accéder</a><img src="http://marcelklacan.com/images/icon.png" alt="" /></div>
       </ul>
     </div>
     <div class="btn-close"></div>
@@ -489,7 +489,7 @@ a {
       <h1 class="title" data-title="Nature"><a href="article">Nature</a></h1>
       <div class="emblem" style="background-image: url(http://icon-icons.com/icons2/564/PNG/512/Close_Up_Mode_icon-icons.com_54195.png)"></div>
       <ul class="city-info">
-        <div class="arrow"><a href="article" class="btn-danger">Accéder</a><img src="http://marcelklacan.com/images/icon.png" alt="" /></div>
+        <div class="arrow"><a href="article">Accéder</a><img src="http://marcelklacan.com/images/icon.png" alt="" /></div>
       </ul>
     </div>
     <div class="btn-close"></div>
