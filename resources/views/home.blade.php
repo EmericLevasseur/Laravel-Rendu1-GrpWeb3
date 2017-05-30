@@ -143,6 +143,7 @@ h1, h2, h3, h4 {
   -webkit-transition-delay: 0.5s;
           transition-delay: 0.5s;
 }
+
 .slide.anim-out .image {
   top: 0;
   left: 0;
@@ -396,14 +397,13 @@ h1, h2, h3, h4 {
 
 
 .arrow {
-  position: fixed;
   font-size: 30px;
   border-radius: 3px;
   background-color: rgba(0, 0, 0, 0.7);
   bottom: 10%;
   right: 5%;
+  display:block;
   margin: 0 auto;
-  display: block;
   padding-left: 15px;
   transition: all 1s;
   pointer-events: auto !important;
@@ -453,7 +453,7 @@ a {
       <h1 class="title" data-title="StreetArt">StreetArt</h1>
       <div class="emblem" style="background-image: url(http://icon-icons.com/icons2/537/PNG/512/paint-brush-2_icon-icons.com_52930.png)"></div>
       <ul class="city-info">
-        <div class="arrow"><a href="">Accéder</a><img src="http://marcelklacan.com/images/icon.png" alt="" /></div>
+        <a href="streetart">Accéder</a><img src="http://marcelklacan.com/images/icon.png" alt="" />
       </ul>
     </div>
     <div class="btn-close"></div>
@@ -465,7 +465,7 @@ a {
       <h1 class="title" data-title="Architecture">Architecture</h1>
       <div class="emblem" style="background-image: url(http://www.globalemployees.com/images/architectureIcon.png)"></div>
       <ul class="city-info">
-        <div class="arrow"><a href="">Accéder</a><img src="http://marcelklacan.com/images/icon.png" alt="" /></div>
+        <div class="arrow"><a href="architecture">Accéder</a><img src="http://marcelklacan.com/images/icon.png" alt="" /></div>
       </ul>
     </div>
     <div class="btn-close"></div>
@@ -477,7 +477,7 @@ a {
       <h1 class="title" data-title="Perspective">Perspective</h1>
       <div class="emblem" style="background-image: url(http://icon-icons.com/icons2/865/PNG/512/Citycons_target_icon-icons.com_67938.png)"></div>
       <ul class="city-info">
-        <div class="arrow"><a href="">Accéder</a><img src="http://marcelklacan.com/images/icon.png" alt="" /></div>
+        <a href="perspective">Accéder</a><img src="http://marcelklacan.com/images/icon.png" alt="" />
       </ul>
     </div>
     <div class="btn-close"></div>
@@ -486,10 +486,10 @@ a {
     <div class="image" style="background-image: url(https://leparisiencampagnard.files.wordpress.com/2014/02/parc-bagatelle-parisien-campagnard.jpg)"></div>
     <div class="overlay"></div>
     <div class="content">
-      <h1 class="title" data-title="Nature">Nature</h1>
+      <h1 class="title" data-title="Nature"><a href="article">Nature</a></h1>
       <div class="emblem" style="background-image: url(http://icon-icons.com/icons2/564/PNG/512/Close_Up_Mode_icon-icons.com_54195.png)"></div>
       <ul class="city-info">
-        <div class="arrow"><a href="article">Accéder</a><img src="http://marcelklacan.com/images/icon.png" alt="" /></div>
+        <div class="arrow"><a href="article" class="btn-danger">Accéder</a><img src="http://marcelklacan.com/images/icon.png" alt="" /></div>
       </ul>
     </div>
     <div class="btn-close"></div>
