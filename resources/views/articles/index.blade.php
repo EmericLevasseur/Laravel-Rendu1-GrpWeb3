@@ -148,7 +148,7 @@ a {
 <div id="wrapper">
 <header>
   <div class="headline">
-    <h1 class="animated fadeInLeft">Street Art</h1>
+    <h1 class="animated fadeInLeft">Tout les articles</h1>
   <div class="arrow"><a class="js-scrollTo" href="#wrapper"><img src="http://marcelklacan.com/images/icon.png" alt="" /></a></div>
 
   </div>

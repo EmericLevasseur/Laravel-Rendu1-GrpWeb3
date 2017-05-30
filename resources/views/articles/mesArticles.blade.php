@@ -152,9 +152,7 @@ a {
   <div class="arrow"><a class="js-scrollTo" href="#wrapper"><img src="http://marcelklacan.com/images/icon.png" alt="" /></a></div>
 
   </div>
-<ul id="slides">
-  <li class="slide slide1 showing"></li>
-</ul>
+
 
   </header>
 
