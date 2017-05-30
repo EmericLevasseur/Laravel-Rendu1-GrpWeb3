@@ -170,11 +170,9 @@ html {
 
 	<div class="galeria">
 		@foreach($articles as $article)
-		 <div class="imagen">
-			 @if (Storage::disk('local')->has($article->title . '-' . $user->id . '.jpg'))
-				 <img src="{{ route('account.image', ['filename' => $article->title . '-' . $user->id . '.jpg']) }}">
-			 @endif
-		 </div>
+			@if (Storage::disk('local')->has($article->title . '-' . $user->id . '.jpg'))
+		  	<div class="imagen" style="background-image: url({{ route('account.image', ['filename' => $article->title . '-' . $user->id . '.jpg']) }})"></div>
+		 	@endif
 	 @endforeach
 	</div>
 
