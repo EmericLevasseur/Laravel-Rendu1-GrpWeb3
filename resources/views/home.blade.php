@@ -465,7 +465,11 @@ a {
       <h1 class="title" data-title="Architecture">Architecture</h1>
       <div class="emblem" style="background-image: url(http://www.globalemployees.com/images/architectureIcon.png)"></div>
       <ul class="city-info">
+<<<<<<< Updated upstream
         <div class="arrow"><a href="{{route('architecture')}}">Accéder</a><img src="http://marcelklacan.com/images/icon.png" alt="" /></div>
+=======
+        <div class="arrow"><a href="architecture">Accéder</a><img src="http://marcelklacan.com/images/icon.png" alt="" /></div>
+>>>>>>> Stashed changes
       </ul>
     </div>
     <div class="btn-close"></div>

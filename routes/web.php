@@ -26,6 +26,11 @@ Route::get('/user', [
 
 Route::resource('article', 'ArticleController');
 
+Route::get('/architecture', [
+  'uses' => 'ArticleController@architecture',
+  'as' => 'architecture'
+]);
+
 Route::get('/admin', [
   'uses' => 'AdminController@index',
   'as' => 'index'

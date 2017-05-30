@@ -26,7 +26,10 @@ class ArticleController extends Controller
      */
      public function architecture()
      {
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
        $articles = Article::all();
        $user = Auth::user();
        return view('articles.architecture', ['articles' => $articles, 'user' => $user]);
