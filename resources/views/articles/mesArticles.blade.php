@@ -66,6 +66,8 @@ content: "";
 position: absolute;
 width: 100%;
 height: 100%;
+background: url(https://lh4.googleusercontent.com/-3QNEIgX3Gv4/UCPyLTtnmHI/AAAAAAAAEDY/KGb0eEM9GZo/s720/fuerzas-naturaleza.jpg); /* Fondo por defecto */
+-moz-background-size: cover;-webkit-background-size: cover;background-size: cover;
 opacity: .1;
 }
 .imagen {
@@ -86,6 +88,18 @@ height: 400%; /* Nºimagenes*100 */
 background-image: inherit;
 -moz-background-size: cover;-webkit-background-size: cover;background-size: cover;
 -moz-transition: all .8s ;-webkit-transition: all .8s ;transition: all .8s ;
+}
+.imagen:hover:nth-of-type(1):before {
+top: 0%; /* (Nº.nth-1)*(-100) */
+}
+.imagen:hover:nth-of-type(2):before {
+top: -100%; /* (Nº.nth-1)*(-100) */
+}
+.imagen:hover:nth-of-type(3):before {
+top: -200%; /* (Nº.nth-1)*(-100) */
+}
+.imagen:hover:nth-of-type(4):before {
+top: -300%; /* (Nº.nth-1)*(-100) */
 }
 
 html {
