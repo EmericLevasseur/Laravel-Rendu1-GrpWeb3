@@ -26,16 +26,16 @@ class ArticleController extends Controller
      */
      public function architecture()
      {
-       var_dump('archi');exit();
+
        $articles = Article::all();
        $user = Auth::user();
-       return view('architecture', ['articles' => $articles, 'user' => $user]);
+       return view('articles.architecture', ['articles' => $articles, 'user' => $user]);
 
      }
 
     public function index()
     {
-      
+
 
       $articles = Article::all();
       $user = Auth::user();
@@ -51,6 +51,23 @@ class ArticleController extends Controller
       return view('articles.streetart', ['articles' => $articles, 'user' => $user]);
 
     }
+    public function nature()
+    {
+
+      $articles = Article::all();
+      $user = Auth::user();
+      return view('articles.nature', ['articles' => $articles, 'user' => $user]);
+
+    }
+    public function perspective()
+    {
+
+      $articles = Article::all();
+      $user = Auth::user();
+      return view('articles.perspective', ['articles' => $articles, 'user' => $user]);
+
+    }
+
 
 
 

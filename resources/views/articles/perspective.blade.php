@@ -148,7 +148,7 @@ a {
 <div id="wrapper">
 <header>
   <div class="headline">
-    <h1 class="animated fadeInLeft">Street Art</h1>
+    <h1 class="animated fadeInLeft">Perspective</h1>
   <div class="arrow"><a class="js-scrollTo" href="#wrapper"><img src="http://marcelklacan.com/images/icon.png" alt="" /></a></div>
 
   </div>
@@ -160,7 +160,7 @@ a {
 
   <div class="flexbin flexbin-margin">
 		@foreach($articles as $article)
-			@if($article->categorie_id == 1)
+			@if($article->categorie_id == 3)
 				<a href="article/{{$article->id}}">
 					@if (Storage::disk('local')->has($article->title . '-' . $user->id . '.jpg'))
 						<img src="{{ route('account.image', ['filename' => $article->title . '-' . $user->id . '.jpg']) }}">

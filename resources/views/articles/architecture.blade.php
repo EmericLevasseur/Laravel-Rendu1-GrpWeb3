@@ -160,7 +160,7 @@ a {
 
   <div class="flexbin flexbin-margin">
 		@foreach($articles as $article)
-			@if($article->categorie_id == 1)
+			@if($article->categorie_id == 2)
 				<a href="article/{{$article->id}}">
 					@if (Storage::disk('local')->has($article->title . '-' . $user->id . '.jpg'))
 						<img src="{{ route('account.image', ['filename' => $article->title . '-' . $user->id . '.jpg']) }}">

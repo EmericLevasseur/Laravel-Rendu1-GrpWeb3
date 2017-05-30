@@ -78,7 +78,21 @@ Route::post('/like', [
   'as' => 'article.like'
 ]);
 
-Route::get('/article/architecture', [
+Route::get('/architecture', [
   'uses' => 'ArticleController@architecture',
   'as' => 'architecture'
+]);
+
+Route::get('/perspective', [
+  'uses' => 'ArticleController@perspective',
+  'as' => 'perspective'
+]);
+
+Route::get('/nature', [
+  'uses' => 'ArticleController@nature',
+  'as' => 'nature'
+]);
+Route::get('/streetart', [
+  'uses' => 'ArticleController@streetart',
+  'as' => 'streetart'
 ]);
