@@ -96,3 +96,7 @@ Route::get('/streetart', [
   'uses' => 'ArticleController@streetart',
   'as' => 'streetart'
 ]);
+Route::get('/mesArticles', [
+  'uses' => 'ArticleController@mesArticles',
+  'as' => 'mesArticles'
+]);

@@ -42,6 +42,15 @@ class ArticleController extends Controller
       return view('articles.index', ['articles' => $articles, 'user' => $user]);
 
     }
+    public function mesArticles()
+    {
+
+
+      $articles = Article::all();
+      $user = Auth::user();
+      return view('articles.mesArticles', ['articles' => $articles, 'user' => $user]);
+
+    }
 
     public function streetart()
     {
@@ -210,10 +219,7 @@ class ArticleController extends Controller
 
       if(Auth::check() && Auth::user()->isAdmin == "1" || $article->user_id == Auth::user()->id) {
 
-        $article->delete([
-        'user_id' => Auth::user()->id,
-
-      ]);
+        $article->delete(['user_id' => Auth::user()->id,]);
 
       session()->flash('alert-danger', 'Article supprimé!');
       return redirect()->route('article.index');
@@ -250,6 +256,7 @@ class ArticleController extends Controller
 
     public function destroyComment($id)
     {
+      var_dump('ok');exit();
       $comment = Comment::find($id);
 
       if(Auth::check() && Auth::user()->isAdmin == "1" || $article->user_id == Auth::user()->id) {
@@ -261,7 +268,7 @@ class ArticleController extends Controller
       ]);
 
       session()->flash('alert-danger', 'Commentaire supprimé');
-      return redirect()->route('article.index');
+      return redirect()->route('article.show');
     }else{
         return view ('home');
     }

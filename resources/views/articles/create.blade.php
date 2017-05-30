@@ -120,7 +120,7 @@ a {
 <SELECT name="categorie" size="1" style="color:black">
   @foreach($categories AS $categorie)
     @if($categorie->id_cat == 5)
-      <option style="" value="{{$categorie->id_cat}}">{{$categorie->libelle}}</option>
+      <option style="display: none" value="{{$categorie->id_cat}}">{{$categorie->libelle}}</option>
     @else
       <option value="{{$categorie->id_cat}}">{{$categorie->libelle}}</option>
     @endif

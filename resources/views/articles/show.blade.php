@@ -147,7 +147,16 @@ a {
       <a href="#" class="like btn btn-success">{{Auth::user()->likes()->where('article_id', $article->id)->first() ? Auth::user()->likes()->where('article_id', $article->id)->first()->like == 1 ?'Vous aimez':'J\'aime':'J\'aime' }}</a>
       <a href="#"  class="like btn btn-danger">{{Auth::user()->likes()->where('article_id', $article->id)->first() ? Auth::user()->likes()->where('article_id', $article->id)->first()->like == 0 ? 'Vous n\'aimez pas':'J\'aime pas':'J\'aime pas' }}</a>
     </center>
-    <center><button>Supprimer l'article</button></center>
+    <center>
+      @if (Auth::user()->isAdmin == 1 || $article->user_id == Auth::user()->id)
+        <a href="{{ url('/article') }}/{{$article->id}}/edit" class="btn btn-success btn-taille">Modifier</a>
+        <form action="{{ route('article.destroy', $article->id) }}" method="post" style="display: inline-block;">
+            {{ csrf_field() }}
+            <input type="hidden" name="_method" value="DELETE">
+            <button class="btn btn-danger btn-taille">Supprimer</button>
+        </form></center>
+      @endif
+    </center>
 
   </article>
 

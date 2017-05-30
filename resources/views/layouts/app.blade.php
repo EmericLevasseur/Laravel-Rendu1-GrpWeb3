@@ -57,7 +57,7 @@
                             <li><a href="{{ route('register') }}">S'enregister</a></li>
                         @else
                                       <li><a href="{{ url('/home') }}">Menu catégories</a></li>
-                                      <li><a href="{{ url('/article') }}">Tout les articles</a></li>
+                                      <li><a href="{{ route('mesArticles') }}">Mes Articles</a></li>
                                       <li><a href="{{ url('/article/create') }}">Poster un article</a></li>
 
                         <li class="dropdown">
