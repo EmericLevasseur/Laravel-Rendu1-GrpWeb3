@@ -110,6 +110,8 @@ a {
   animation-duration: 1s;
   animation-delay: 0.4s;
   transition: all 1s;
+  position:absolute;
+  top:50%;
 }
 .espace-commentaire:hover {
     background-color: rgba(0, 0, 0, 0.9);
@@ -123,7 +125,7 @@ a {
 
 @section('content')
 @if (Storage::disk('local')->has($article->title . '-' . $user->id . '.jpg'))
-  <img id="bgvid" src="{{ route('account.image', ['filename' => $article->title . '-' . $user->id . '.jpg']) }}">
+  <img id="bgvid" style="overflow:hidden" src="{{ route('account.image', ['filename' => $article->title . '-' . $user->id . '.jpg']) }}">
 @endif
   <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
 <div class="arrow animated fadeInRight">
@@ -139,7 +141,7 @@ a {
   <p class="adresse">
     Adresse : {{$article->adresse}}
   </p>
-  <button>Réagir</button>
+  <a class="js-scrollTo" href="#shotcom"><button>Réagir</button>
   <article class="" data-postid="{{$article->id}}">
     <center>
       <a href="#" class="like btn btn-success">{{Auth::user()->likes()->where('article_id', $article->id)->first() ? Auth::user()->likes()->where('article_id', $article->id)->first()->like == 1 ?'Vous aimez':'J\'aime':'J\'aime' }}</a>
@@ -150,7 +152,10 @@ a {
   </article>
 
 </div>
-            <div class=" col-md-8 espace-commentaire">
+
+</div>
+
+            <div class="col-md-8 col-xs-8 col-sm-8 col-lg-8 espace-commentaire">
               @if (!empty($article->comments))
             <h2>Liste des commentaires</h2>
             @foreach($article->comments AS $comment)
@@ -165,7 +170,6 @@ a {
                         <form action="{{ route('destroyComment', $comment->id) }}" method="post" style="display: inline-block;">
                             {{ csrf_field() }}
                             <input type="hidden" name="_method" value="DELETE">
-                            <button class="btn btn-danger">Supprimer</button>
                         </form>
                         @else
                         @endif
@@ -178,7 +182,7 @@ a {
             @else
               <h2>Aucun commentaire</h2>
             @endif
-
+            <div id="shotcom"></div>
             <form action="{{ route('article.comment', $article->id) }}" method="post">
                 {{ csrf_field() }}
                 <textarea name="comment" class="form-control" style="background: rgba(255,255,255,0.23);
@@ -189,11 +193,18 @@ a {
                 <center><button class="btn btn-primary sendcom">Envoyer</button></center>
             </form>
             </div>
-</div>
-
 
 <script>
   var token ='{{ Session::token() }}'
   var urlLike ="{{ route('article.like') }}"
+
+  $(document).ready(function() {
+  		$('.js-scrollTo').on('click', function() { // Au clic sur un élément
+  			var page = $(this).attr('href'); // Page cible
+  			var speed = 750; // Durée de l'animation (en ms)
+  			$('html, body').animate( { scrollTop: $(page).offset().top }, speed ); // Go
+  			return false;
+  		});
+  	});
 </script>
 @endsection
