@@ -76,21 +76,6 @@ background-position: 50% 50%;
 -moz-background-size: cover;-webkit-background-size: cover;background-size: cover;
 cursor: pointer;
 }
-.imagen:nth-of-type(1) {
-background-image: url(https://lh4.googleusercontent.com/-3QNEIgX3Gv4/UCPyLTtnmHI/AAAAAAAAEDY/KGb0eEM9GZo/s720/fuerzas-naturaleza.jpg);
-}
-.imagen:nth-of-type(2) {
-background-image: url(https://lh5.googleusercontent.com/-KijskybjlCc/UCPyNCwVxPI/AAAAAAAAEDg/8AwgBhZyhG4/s800/fuerzas-naturaleza2.jpg);
-}
-.imagen:nth-of-type(3) {
-background-image: url(https://lh5.googleusercontent.com/-uGIMoR677PM/UCPyOBjNWVI/AAAAAAAAEDo/XE73W5FQW-c/s800/fuerzas-naturaleza3.jpg);
-}
-.imagen:nth-of-type(4) {
-background-image: url(https://lh5.googleusercontent.com/-nbNq900tVT4/UCPyQeZkP_I/AAAAAAAAEDw/WsBQhD2Da-o/s800/fuerzas-naturaleza4.jpg);
-}
-.imagen:nth-of-type(5) {
-background-image: url(https://lh5.googleusercontent.com/-nbNq900tVT4/UCPyQeZkP_I/AAAAAAAAEDw/WsBQhD2Da-o/s800/fuerzas-naturaleza4.jpg);
-}
 .imagen:before {
 content: "";
 position: absolute;
@@ -101,18 +86,6 @@ height: 400%; /* Nºimagenes*100 */
 background-image: inherit;
 -moz-background-size: cover;-webkit-background-size: cover;background-size: cover;
 -moz-transition: all .8s ;-webkit-transition: all .8s ;transition: all .8s ;
-}
-.imagen:hover:nth-of-type(1):before {
-top: 0%; /* (Nº.nth-1)*(-100) */
-}
-.imagen:hover:nth-of-type(2):before {
-top: -100%; /* (Nº.nth-1)*(-100) */
-}
-.imagen:hover:nth-of-type(3):before {
-top: -200%; /* (Nº.nth-1)*(-100) */
-}
-.imagen:hover:nth-of-type(4):before {
-top: -300%; /* (Nº.nth-1)*(-100) */
 }
 
 html {
@@ -164,15 +137,15 @@ html {
   <div class="arrow"><a class="js-scrollTo" href="#wrapper"><img src="http://marcelklacan.com/images/icon.png" alt="" /></a></div>
 
   </div>
-
-
   </header>
 
+
+
 	<div class="galeria">
-	 <div class="imagen"></div>
-	 <div class="imagen"></div>
-	 <div class="imagen"></div>
-	 <div class="imagen"></div>
+	 <div class="imagen" style="background-image: url(http://lafilledecorinthe.com/wordpress/wp-content/uploads/2015/05/Varini.jpg)"></div>
+	 <div class="imagen" style="background-image: url(http://lafilledecorinthe.com/wordpress/wp-content/uploads/2015/05/Varini.jpg)"></div>
+	 <div class="imagen" style="background-image: url(http://lafilledecorinthe.com/wordpress/wp-content/uploads/2015/05/Varini.jpg)"></div>
+	 <div class="imagen" style="background-image: url(http://lafilledecorinthe.com/wordpress/wp-content/uploads/2015/05/Varini.jpg)"></div>
 	</div>
 
 
