@@ -160,7 +160,7 @@ a {
 
 </div>
 
-            <div class="col-md-8 col-xs-8 col-sm-8 col-lg-8 espace-commentaire">
+<div class="col-md-8 col-xs-8 col-sm-8 col-lg-8 espace-commentaire">
               @if (!empty($article->comments))
             <h2>Liste des commentaires</h2>
             @foreach($article->comments AS $comment)
