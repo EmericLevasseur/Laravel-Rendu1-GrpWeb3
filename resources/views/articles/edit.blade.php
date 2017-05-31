@@ -104,7 +104,7 @@ a {
 @endif
   <div class="bloc">
 <div class="container">
-  <div class="col-md-7">
+  <div class="col-md-9">
   <div class="title m-b-md">
       <center>Modifier l'article {{ $article->title }}</center>
   </div>
@@ -118,12 +118,6 @@ a {
   <br>
   <textarea class="form-control" name="content" id=""  placeholder="Contenu" cols="30" rows="10">{{ $article->content }}</textarea>
   <br>
-  <select class="form-control" name="user" class="form-control" required>
-    <option>Merci de sélectionner un utilisateur</option>
-    @foreach($users AS $user)
-        <option value="{{ $user->id }}" {{ ( $user->id == $article->user->id ) ? 'selected' : '' }}>{{ $user->name }}</option>
-    @endforeach
-  </select>
   <div class="space">
 </div>
         <center><button type="submit" name="button" class="button">Modifier</button></center>
