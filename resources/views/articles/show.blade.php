@@ -141,7 +141,7 @@ a {
   <p class="adresse">
     Adresse : {{$article->adresse}}
   </p>
-<button>Réagir</button>
+<a class="js-scrollTo" href="#shotcom"><button>Réagir</button></a>
   <article class="" data-postid="{{$article->id}}">
     <center>
       <a href="#" class="like btn btn-success">{{Auth::user()->likes()->where('article_id', $article->id)->first() ? Auth::user()->likes()->where('article_id', $article->id)->first()->like == 1 ?'Vous aimez':'J\'aime':'J\'aime' }}</a>
