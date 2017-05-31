@@ -1,41 +1,28 @@
 <style>
-body{
-  background: #2980b9 url('http://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0;
-	-webkit-animation: 10s linear 0s normal none infinite animate;
-	-moz-animation: 10s linear 0s normal none infinite animate;
-	-ms-animation: 10s linear 0s normal none infinite animate;
-	-o-animation: 10s linear 0s normal none infinite animate;
-	animation: 10s linear 0s normal none infinite animate;
+
+@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+
+body {
+  background-image: url("https://www.pariszigzag.fr/wp-content/uploads/2016/11/etoiles-observation-paris-zigzag.jpg") !important;
+  background-size: cover !important;
+  font-family: 'Poiret One', cursive !important;
+  color: white !important;
 
 }
 
-@-webkit-keyframes animate {
-	from {background-position:0 0;}
-	to {background-position: 500px 0;}
+a {
+    color: white !important;
+    text-decoration: none !important;
 }
 
-@-moz-keyframes animate {
-	from {background-position:0 0;}
-	to {background-position: 500px 0;}
-}
-
-@-ms-keyframes animate {
-	from {background-position:0 0;}
-	to {background-position: 500px 0;}
-}
-
-@-o-keyframes animate {
-	from {background-position:0 0;}
-	to {background-position: 500px 0;}
-}
-
-@keyframes animate {
-	from {background-position:0 0;}
-	to {background-position: 500px 0;}
+.navbar-default {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  border-color: transparent !important;
+  margin-bottom: 0px !important;
 }
 
     .title {
-        font-size: 40px;
+        font-size: 50px;
         color: white;
     }
     .space {
@@ -48,6 +35,59 @@ body{
     }
     .btn-taille {
       width: 100px;
+    }
+    .radius {
+      border-radius: 120px;
+    }
+
+    .button {
+      padding: 0.75em 2em;
+      background-color: black;
+      color: white !important;
+      border: 1px solid white;
+      text-align: center;
+      text-decoration: none;
+      text-shadow: 1px 1px 1px black !important;
+      color: white !important;
+      font-size: 24px;
+      display: inline-block;
+      border-radius: 0.3em;
+      -webkit-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+      position: relative;
+      overflow: hidden;
+    }
+    .button:before {
+      content: "";
+      background-color: rgba(255, 255, 255, 0.5);
+      height: 100%;
+      width: 3em;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -4.5em;
+      -webkit-transform: skewX(-45deg) translateX(0);
+              transform: skewX(-45deg) translateX(0);
+      -webkit-transition: none;
+      transition: none;
+    }
+    .button:hover {
+      border: 2px solid #2194E0;
+      background-color: #2194E0;
+      color: white !important;
+      border-bottom: 4px solid #1977b5;
+    }
+    .button:hover:before {
+      -webkit-transform: skewX(-45deg) translateX(13.5em);
+              transform: skewX(-45deg) translateX(13.5em);
+      -webkit-transition: all 0.5s ease-in-out;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .bloc {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 5%;
+      margin: 10%;
 
     }
 </style>
@@ -62,11 +102,11 @@ body{
   @endforeach
 </ul>
 @endif
-
+  <div class="bloc">
 <div class="container">
-  <div class="col-md-8 col-md-offset-2">
+  <div class="col-md-7">
   <div class="title m-b-md">
-      <center>Modifier l'article de <a href="{{ url('/user/'.$article->user->id) }}">{{ $article->user->name }}</a></center>
+      <center>Modifier l'article {{ $article->title }}</center>
   </div>
   <div class="space">
 </div>
@@ -86,8 +126,9 @@ body{
   </select>
   <div class="space">
 </div>
-  <center><input class="btn btn-success" type="submit" value="Envoyer"></center>
+        <center><button type="submit" name="button" class="button">Modifier</button></center>
 </form>
+</div>
 </div>
 </div>
 </div>
